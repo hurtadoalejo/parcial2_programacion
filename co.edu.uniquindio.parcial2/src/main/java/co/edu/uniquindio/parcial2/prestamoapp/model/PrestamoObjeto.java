@@ -244,13 +244,13 @@ public class PrestamoObjeto {
 
     public boolean agregarPrestamo(Prestamo prestamo) {
         if (obtenerPrestamo(prestamo.getNumeroPrestamo()) == null &&
-                verificarDisponibilidadLibros(prestamo) &&
+                verificarDisponibilidadObjetos(prestamo) &&
                 !prestamo.getListaObjetosAsociados().isEmpty() &&
                 !prestamo.isEntregado()) {
             listaPrestamos.add(prestamo);
             prestamo.getClienteAsociado().getListaPrestamosAsociados().add(prestamo);
             prestamo.getEmpleadoAsociado().getListaPrestamosAsociados().add(prestamo);
-            cambiarEstadoDisponibilidadLibrosOcupados(prestamo);
+            cambiarEstadoDisponibilidadObjetosOcupados(prestamo);
             return true;
         }
         return false;
@@ -288,7 +288,7 @@ public class PrestamoObjeto {
         if (prestamoEncontrado != null && !prestamoEncontrado.isEntregado()) {
             if (verificarFechasPrestamo(prestamoEncontrado, fechaEntrega)) {
                 prestamoEncontrado.setEntregado(true);
-                cambiarEstadoDisponibilidadLibrosLibres(prestamoEncontrado);
+                cambiarEstadoDisponibilidadObjetosLibres(prestamoEncontrado);
                 return true;
             }
         }
@@ -304,7 +304,7 @@ public class PrestamoObjeto {
         return null;
     }
 
-    private boolean verificarDisponibilidadLibros(Prestamo prestamo) {
+    private boolean verificarDisponibilidadObjetos(Prestamo prestamo) {
         for (Objeto objeto: prestamo.getListaObjetosAsociados()) {
             if (objeto.isPrestado()) {
                 return false;
@@ -313,13 +313,13 @@ public class PrestamoObjeto {
         return true;
     }
 
-    private void cambiarEstadoDisponibilidadLibrosOcupados(Prestamo prestamo) {
+    private void cambiarEstadoDisponibilidadObjetosOcupados(Prestamo prestamo) {
         for (Objeto objeto: prestamo.getListaObjetosAsociados()) {
             objeto.setPrestado(true);
         }
     }
 
-    private void cambiarEstadoDisponibilidadLibrosLibres(Prestamo prestamo) {
+    private void cambiarEstadoDisponibilidadObjetosLibres(Prestamo prestamo) {
         for (Objeto objeto: prestamo.getListaObjetosAsociados()) {
             objeto.setPrestado(false);
         }
