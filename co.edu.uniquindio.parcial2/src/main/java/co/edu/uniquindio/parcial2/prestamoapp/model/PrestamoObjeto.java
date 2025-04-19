@@ -61,26 +61,8 @@ public class PrestamoObjeto {
         this.nombre = nombre;
     }
 
-    public boolean crearCliente(String cedula,
-                                String nombre,
-                                String apellido,
-                                String email,
-                                String telefonoFijo,
-                                String telefonoCelular,
-                                String direccion){
-        Cliente clienteEncontrado = obtenerCliente(cedula);
-        if(clienteEncontrado == null){
-            Cliente cliente = getBuildCliente(cedula, nombre, apellido, email, telefonoFijo, telefonoCelular, direccion);
-            getListaClientes().add(cliente);
-            return true;
-        }else{
-            return  false;
-        }
-    }
-
     public boolean crearCliente(Cliente nuevoCliente){
-        Cliente clienteEncontrado = obtenerCliente(nuevoCliente.getCedula());
-        if(clienteEncontrado == null){
+        if(!existePersona(nuevoCliente.getCedula())){
             getListaClientes().add(nuevoCliente);
             return true;
         }else{
@@ -91,7 +73,7 @@ public class PrestamoObjeto {
     public boolean actualizarCliente(String cedulaClienteViejo, Cliente nuevoCliente){
         Cliente clienteViejo = obtenerCliente(cedulaClienteViejo);
         if (clienteViejo != null) {
-            if (obtenerCliente(nuevoCliente.getCedula()) == null ||
+            if (!existePersona(nuevoCliente.getCedula()) ||
                     nuevoCliente.getCedula().equalsIgnoreCase(cedulaClienteViejo)){
                 intercambiarInstanciaClienteModelo(clienteViejo, nuevoCliente);
                 return true;
@@ -202,7 +184,7 @@ public class PrestamoObjeto {
     }
 
     public boolean agregarEmpleado(Empleado empleado) {
-        if (obtenerEmpleado(empleado.getCedula()) == null) {
+        if (!existePersona(empleado.getCedula())) {
             listaEmpleados.add(empleado);
             return true;
         }
@@ -221,7 +203,7 @@ public class PrestamoObjeto {
     public boolean actualizarEmpleado(String cedulaEmpleado, Empleado nuevoEmpleado) {
         Empleado empleadoViejo = obtenerEmpleado(cedulaEmpleado);
         if (empleadoViejo != null) {
-            if (obtenerEmpleado(nuevoEmpleado.getCedula()) == null ||
+            if (!existePersona(nuevoEmpleado.getCedula()) ||
             nuevoEmpleado.getCedula().equalsIgnoreCase(cedulaEmpleado)){
                 empleadoViejo.setNombre(nuevoEmpleado.getNombre());
                 empleadoViejo.setApellido(nuevoEmpleado.getApellido());
@@ -348,5 +330,13 @@ public class PrestamoObjeto {
     private boolean verificarFechasPrestamo(Prestamo prestamo, Date fechaEntrega) {
         Date fechaPrestamo = prestamo.getFechaPrestamo();
         return fechaEntrega.after(fechaPrestamo);
+    }
+
+    private boolean existePersona(String cedula) {
+        Empleado empleado = obtenerEmpleado(cedula);
+        if (empleado == null) {
+            return obtenerCliente(cedula) != null;
+        }
+        return true;
     }
 }

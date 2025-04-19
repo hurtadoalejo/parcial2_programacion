@@ -23,22 +23,50 @@
           </Tab>
           <Tab fx:id="tab_empleado" text="Empleado">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane fx:id="sp_GestionEmpleado" orientation="VERTICAL" prefHeight="652.0" prefWidth="970.0">
+                           <items>
+                              <fx:include source="GestionEmpleado.fxml" />
+                           </items>
+                        </SplitPane>
+                     </children></AnchorPane>
             </content>
           </Tab>
             <Tab fx:id="tab_objeto" text="Objeto">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane fx:id="sp_GestionObjeto" orientation="VERTICAL" prefHeight="652.0" prefWidth="970.0">
+                           <items>
+                              <fx:include source="GestionCliente.fxml" />
+                           </items>
+                        </SplitPane>
+                     </children></AnchorPane>
                </content>
             </Tab>
             <Tab fx:id="tab_prestamo" text="Prestamo">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane fx:id="sp_GestionPrestamo" orientation="VERTICAL" prefHeight="652.0" prefWidth="970.0">
+                           <items>
+                              <fx:include source="GestionCliente.fxml" />
+                           </items>
+                        </SplitPane>
+                     </children></AnchorPane>
                </content>
             </Tab>
             <Tab fx:id="tab_administrativa" text="Administrativa">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane fx:id="sp_Administrativa" orientation="VERTICAL" prefHeight="652.0" prefWidth="970.0">
+                           <items>
+                              <fx:include source="GestionCliente.fxml" />
+                           </items>
+                        </SplitPane>
+                     </children></AnchorPane>
                </content>
             </Tab>
         </tabs>
