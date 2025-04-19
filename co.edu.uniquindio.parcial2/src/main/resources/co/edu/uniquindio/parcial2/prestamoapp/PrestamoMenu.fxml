@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.parcial2.prestamoapp.viewController.PrestamoMenuViewController">
+   <children>
+      <TabPane fx:id="tabPane_menuPrincipal" layoutX="10.0" layoutY="10.0" prefHeight="680.0" prefWidth="970.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="tab_cliente" text="Cliente">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="550.0" prefWidth="970.0">
+                     <children>
+                        <SplitPane fx:id="sp_GestionClientes" layoutY="-1.0" orientation="VERTICAL" prefHeight="652.0" prefWidth="970.0">
+                            <items>
+                                <fx:include source="GestionCliente.fxml" />
+                            </items>
+                        </SplitPane>
+                     </children>
+              </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="tab_empleado" text="Empleado">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab fx:id="tab_objeto" text="Objeto">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="tab_prestamo" text="Prestamo">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab fx:id="tab_administrador" text="Administrador">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
