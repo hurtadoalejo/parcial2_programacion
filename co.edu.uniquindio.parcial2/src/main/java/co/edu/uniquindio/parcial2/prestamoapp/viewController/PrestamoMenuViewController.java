@@ -53,6 +53,7 @@ public class PrestamoMenuViewController {
 
     @FXML
     void initialize() {
+        configurarCambioDeTab();
     }
 
     /**
@@ -65,9 +66,9 @@ public class PrestamoMenuViewController {
             } else if (newTab == tab_empleado) {
                 cargarVistaGestionEmpleado();
             } else if (newTab == tab_objeto) {
-                System.out.println();
+                cargarVistaGestionObjeto();
             } else if (newTab == tab_prestamo) {
-                System.out.println();
+                cargarVistaGestionPrestamo();
             } else if (newTab == tab_administrativa) {
                 System.out.println();
             }
@@ -93,6 +94,30 @@ public class PrestamoMenuViewController {
             AnchorPane nuevaVista = loader.load();
             GestionEmpleadoViewController viewController = loader.getController();
             sp_GestionEmpleado.getItems().setAll(nuevaVista);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void cargarVistaGestionObjeto() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                    "/co/edu/uniquindio/parcial2/prestamoapp/GestionObjeto.fxml"));
+            AnchorPane nuevaVista = loader.load();
+            GestionObjetoViewController viewController = loader.getController();
+            sp_GestionObjeto.getItems().setAll(nuevaVista);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void cargarVistaGestionPrestamo() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                    "/co/edu/uniquindio/parcial2/prestamoapp/GestionPrestamo.fxml"));
+            AnchorPane nuevaVista = loader.load();
+            GestionPrestamoViewController viewController = loader.getController();
+            sp_GestionPrestamo.getItems().setAll(nuevaVista);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.parcial2.prestamoapp.SeleccionMultipleViewController">
+   <children>
+   
+       <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20">
+      <children>
+              <Label text="Selecciona los objetos:" />
+      
+              <ListView fx:id="listViewObjetos" prefHeight="300.0" />
+      
+              <Button onAction="#onAceptar" text="Aceptar" />
+      </children>
+       </VBox>
+   </children>
+
+</AnchorPane>

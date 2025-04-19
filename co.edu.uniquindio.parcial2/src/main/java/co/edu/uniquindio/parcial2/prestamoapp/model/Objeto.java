@@ -7,7 +7,7 @@ public class Objeto {
     private String nombre;
     private String idObjeto;
     PrestamoObjeto ownedByPrestamoUq;
-    private boolean prestado;
+    private DisponibilidadObjeto disponibilidadObjeto;
     private List<Prestamo> listaPrestamosAsociados;
 
     public Objeto() {
@@ -48,12 +48,12 @@ public class Objeto {
         this.ownedByPrestamoUq = ownedByPrestamoUq;
     }
 
-    public boolean isPrestado() {
-        return prestado;
+    public DisponibilidadObjeto getDisponibilidadObjeto() {
+        return disponibilidadObjeto;
     }
 
-    public void setPrestado(boolean prestado) {
-        this.prestado = prestado;
+    public void setDisponibilidadObjeto(DisponibilidadObjeto disponibilidadObjeto) {
+        this.disponibilidadObjeto = disponibilidadObjeto;
     }
 
     public List<Prestamo> getListaPrestamosAsociados() {

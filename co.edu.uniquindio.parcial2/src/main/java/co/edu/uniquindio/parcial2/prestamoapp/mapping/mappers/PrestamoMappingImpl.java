@@ -2,8 +2,12 @@ package co.edu.uniquindio.parcial2.prestamoapp.mapping.mappers;
 
 import co.edu.uniquindio.parcial2.prestamoapp.mapping.dto.ClienteDto;
 import co.edu.uniquindio.parcial2.prestamoapp.mapping.dto.EmpleadoDto;
+import co.edu.uniquindio.parcial2.prestamoapp.mapping.dto.ObjetoDto;
+import co.edu.uniquindio.parcial2.prestamoapp.mapping.dto.PrestamoDto;
 import co.edu.uniquindio.parcial2.prestamoapp.model.Cliente;
 import co.edu.uniquindio.parcial2.prestamoapp.model.Empleado;
+import co.edu.uniquindio.parcial2.prestamoapp.model.Objeto;
+import co.edu.uniquindio.parcial2.prestamoapp.model.Prestamo;
 import co.edu.uniquindio.parcial2.prestamoapp.service.IPrestamoMapping;
 
 import java.util.ArrayList;
@@ -73,5 +77,71 @@ public class PrestamoMappingImpl implements IPrestamoMapping {
         empleado.setCedula(empleadoDto.cedula());
         empleado.setEdad(empleadoDto.edad());
         return empleado;
+    }
+
+    @Override
+    public List<ObjetoDto> getObjetosDto(List<Objeto> listaObjetos) {
+        if (listaObjetos == null) {
+            return null;
+        }
+        List<ObjetoDto> listaObjetosDto = new ArrayList<ObjetoDto>();
+        for (Objeto objeto : listaObjetos) {
+            listaObjetosDto.add(objetoToObjetoDto(objeto));
+        }
+        return listaObjetosDto;
+    }
+
+    @Override
+    public ObjetoDto objetoToObjetoDto(Objeto objeto) {
+        return new ObjetoDto(
+                objeto.getNombre(),
+                objeto.getIdObjeto(),
+                objeto.getDisponibilidadObjeto());
+    }
+
+    @Override
+    public Objeto objetoDtoToObjeto(ObjetoDto objetoDto) {
+        Objeto objeto = new Objeto();
+        objeto.setNombre(objetoDto.nombre());
+        objeto.setIdObjeto(objetoDto.idObjeto());
+        objeto.setDisponibilidadObjeto(objetoDto.disponibilidadObjeto());
+        return objeto;
+    }
+
+    @Override
+    public List<PrestamoDto> getPrestamosDto(List<Prestamo> listaPrestamos) {
+        if (listaPrestamos == null) {
+            return null;
+        }
+        List<PrestamoDto> listaPrestamosDto = new ArrayList<PrestamoDto>();
+        for (Prestamo prestamo : listaPrestamos) {
+            listaPrestamosDto.add(prestamoToPrestamoDto(prestamo));
+        }
+        return listaPrestamosDto;
+    }
+
+    @Override
+    public PrestamoDto prestamoToPrestamoDto(Prestamo prestamo) {
+        return new PrestamoDto(
+                prestamo.getNumeroPrestamo(),
+                prestamo.getDescripcion(),
+                prestamo.getFechaPrestamo(),
+                prestamo.getFechaEntrega(),
+                prestamo.getEmpleadoAsociado().getCedula(),
+                prestamo.getClienteAsociado().getCedula(),
+                prestamo.getEstadoPrestamo());
+    }
+
+    @Override
+    public Prestamo prestamoDtoToPrestamo(PrestamoDto prestamoDto, Empleado empleado, Cliente cliente) {
+        Prestamo prestamo = new Prestamo();
+        prestamo.setNumeroPrestamo(prestamoDto.numeroPrestamo());
+        prestamo.setDescripcion(prestamoDto.descripcion());
+        prestamo.setFechaPrestamo(prestamoDto.fechaPrestamo());
+        prestamo.setFechaEntrega(prestamoDto.fechaEntrega());
+        prestamo.setEmpleadoAsociado(empleado);
+        prestamo.setClienteAsociado(cliente);
+        prestamo.setEstadoPrestamo(prestamoDto.estadoPrestamo());
+        return prestamo;
     }
 }

@@ -1,22 +1,22 @@
 package co.edu.uniquindio.parcial2.prestamoapp.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Prestamo {
     private String numeroPrestamo;
-    private Date fechaPrestamo;
-    private Date fechaEntrega;
+    private LocalDate fechaPrestamo;
+    private LocalDate fechaEntrega;
     private String descripcion;
     private Empleado empleadoAsociado;
     private Cliente clienteAsociado;
-    private boolean entregado;
+    private EstadoPrestamo estadoPrestamo;
     private List<Objeto> listaObjetosAsociados = new ArrayList<>();
 
     public Prestamo() {
         listaObjetosAsociados = new ArrayList<>();
-        entregado = false;
+        estadoPrestamo = EstadoPrestamo.PENDIENTE;
     }
 
     public String getNumeroPrestamo() {
@@ -27,19 +27,19 @@ public class Prestamo {
         this.numeroPrestamo = numeroPrestamo;
     }
 
-    public Date getFechaPrestamo() {
+    public LocalDate getFechaPrestamo() {
         return fechaPrestamo;
     }
 
-    public void setFechaPrestamo(Date fechaPrestamo) {
+    public void setFechaPrestamo(LocalDate fechaPrestamo) {
         this.fechaPrestamo = fechaPrestamo;
     }
 
-    public Date getFechaEntrega() {
+    public LocalDate getFechaEntrega() {
         return fechaEntrega;
     }
 
-    public void setFechaEntrega(Date fechaEntrega) {
+    public void setFechaEntrega(LocalDate fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
 
@@ -75,11 +75,11 @@ public class Prestamo {
         this.listaObjetosAsociados = listaObjetosAsociados;
     }
 
-    public boolean isEntregado() {
-        return entregado;
+    public EstadoPrestamo getEstadoPrestamo() {
+        return estadoPrestamo;
     }
 
-    public void setEntregado(boolean entregado) {
-        this.entregado = entregado;
+    public void setEstadoPrestamo(EstadoPrestamo estadoPrestamo) {
+        this.estadoPrestamo = estadoPrestamo;
     }
 }

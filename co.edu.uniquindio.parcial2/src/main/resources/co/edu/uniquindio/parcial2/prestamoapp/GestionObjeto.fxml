@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="652.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.parcial2.prestamoapp.viewController.GestionObjetoViewController">
+   <children>
+      <SplitPane dividerPositions="0.4642857142857143" layoutX="10.0" layoutY="10.0" orientation="VERTICAL" prefHeight="632.0" prefWidth="950.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Label layoutX="110.0" layoutY="93.0" text="Nombre:" />
+                  <Label layoutX="497.0" layoutY="92.0" text="Id Objeto:" />
+                  <TextField fx:id="txt_Nombre" layoutX="173.0" layoutY="87.0" prefHeight="26.0" prefWidth="268.0" />
+                  <TextField fx:id="txt_IdObjeto" layoutX="570.0" layoutY="87.0" prefHeight="26.0" prefWidth="268.0" />
+                  <Separator layoutX="65.0" layoutY="171.0" prefHeight="7.0" prefWidth="819.0" />
+                  <Button fx:id="btn_Limpiar" layoutX="225.0" layoutY="213.0" mnemonicParsing="false" onAction="#onLimpiar" prefHeight="26.0" prefWidth="108.0" text="Limpiar" />
+                  <Button fx:id="btn_Agregar" layoutX="419.0" layoutY="212.0" mnemonicParsing="false" onAction="#onAgregarObjeto" prefHeight="26.0" prefWidth="109.0" text="Agregar" />
+                  <Button fx:id="btn_Actualizar" layoutX="615.0" layoutY="212.0" mnemonicParsing="false" onAction="#onActualizarObjeto" prefHeight="26.0" prefWidth="109.0" text="Actualizar" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="305.0" prefWidth="548.0">
+               <children>
+                  <TableView fx:id="tableObjeto" layoutX="124.0" layoutY="24.0" prefHeight="228.0" prefWidth="700.0">
+                     <columns>
+                        <TableColumn fx:id="tc_Nombre" prefWidth="208.0" text="Nombre" />
+                        <TableColumn fx:id="tc_IdObjeto" prefWidth="211.0" text="Id Objeto" />
+                        <TableColumn fx:id="tc_DisponibilidadObjeto" prefWidth="276.0" text="Disponibilidad Objeto" />
+                     </columns>
+                  </TableView>
+                  <Button fx:id="btn_Eliminar" layoutX="414.0" layoutY="280.0" mnemonicParsing="false" onAction="#onEliminarObjeto" prefHeight="26.0" prefWidth="109.0" text="Eliminar" />
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

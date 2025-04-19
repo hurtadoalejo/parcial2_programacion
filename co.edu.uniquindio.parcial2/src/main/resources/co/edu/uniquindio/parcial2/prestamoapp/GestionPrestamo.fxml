@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="652.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.parcial2.prestamoapp.viewController.GestionPrestamoViewController">
+   <children>
+      <SplitPane dividerPositions="0.5142857142857142" layoutX="10.0" layoutY="10.0" orientation="VERTICAL" prefHeight="632.0" prefWidth="950.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Label layoutX="62.0" layoutY="33.0" text="Número prestamo:" />
+                  <Label layoutX="542.0" layoutY="30.0" text="Cliente:" />
+                  <Label layoutX="96.0" layoutY="82.0" prefHeight="17.0" prefWidth="66.0" text="Descripción:" />
+                  <Label layoutX="72.0" layoutY="136.0" prefHeight="17.0" prefWidth="90.0" text="Fecha prestamo:" />
+                  <Label layoutX="524.0" layoutY="81.0" prefHeight="17.0" prefWidth="58.0" text="Empleado:" />
+                  <TextField fx:id="txt_NumeroPrestamo" layoutX="179.0" layoutY="26.0" prefHeight="26.0" prefWidth="268.0" />
+                  <TextField fx:id="txt_Descripcion" layoutX="179.0" layoutY="77.0" prefHeight="26.0" prefWidth="268.0" />
+                  <Separator layoutX="65.0" layoutY="190.0" prefHeight="7.0" prefWidth="819.0" />
+                  <Button fx:id="btn_Limpiar" layoutX="129.0" layoutY="218.0" mnemonicParsing="false" onAction="#onLimpiar" prefHeight="26.0" prefWidth="108.0" text="Limpiar" />
+                  <Button fx:id="btn_Agregar" layoutX="323.0" layoutY="217.0" mnemonicParsing="false" onAction="#onAgregarPrestamo" prefHeight="26.0" prefWidth="109.0" text="Agregar" />
+                  <Button fx:id="btn_Actualizar" layoutX="519.0" layoutY="217.0" mnemonicParsing="false" onAction="#onActualizarPrestamo" prefHeight="26.0" prefWidth="109.0" text="Actualizar" />
+                  <DatePicker fx:id="datePicker_FechaPrestamo" layoutX="179.0" layoutY="132.0" prefHeight="25.0" prefWidth="268.0" />
+                  <DatePicker fx:id="datePicker_FechaEntrega" layoutX="596.0" layoutY="131.0" prefHeight="25.0" prefWidth="268.0" />
+                  <ComboBox fx:id="cb_EmpleadoAsociado" layoutX="596.0" layoutY="77.0" prefHeight="25.0" prefWidth="268.0" />
+                  <ComboBox fx:id="cb_ClienteAsociado" layoutX="596.0" layoutY="26.0" prefHeight="25.0" prefWidth="268.0" />
+                  <Label layoutX="503.0" layoutY="135.0" prefHeight="17.0" prefWidth="79.0" text="Fecha entrega:" />
+                  <Button fx:id="btn_Entregar" layoutX="711.0" layoutY="217.0" mnemonicParsing="false" onAction="#onEntregarPrestamo" prefHeight="26.0" prefWidth="109.0" text="Entregar" />
+                  <Button fx:id="btn_AgregarObjetos" layoutX="420.0" layoutY="273.0" mnemonicParsing="false" onAction="#onAgregarObjetos" prefHeight="26.0" prefWidth="109.0" text="Agregar Objetos" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="305.0" prefWidth="548.0">
+               <children>
+                  <TableView fx:id="tablePrestamo" layoutX="24.0" layoutY="13.0" prefHeight="228.0" prefWidth="901.0">
+                     <columns>
+                        <TableColumn fx:id="tc_NumeroPrestamo" prefWidth="121.0" text="Número prestamo" />
+                        <TableColumn fx:id="tc_Descripcion" prefWidth="156.0" text="Descripción" />
+                        <TableColumn fx:id="tc_FechaPrestamo" prefWidth="129.0" text="Fecha Prestamo" />
+                        <TableColumn fx:id="tc_FechaEntrega" prefWidth="117.0" text="Fecha Entrega" />
+                        <TableColumn fx:id="tc_Empleado" prefWidth="122.0" text="Empleado" />
+                        <TableColumn fx:id="tc_Cliente" prefWidth="120.0" text="Cliente" />
+                        <TableColumn fx:id="tc_EstadoPrestamo" prefWidth="133.0" text="Estado Prestamo" />
+                     </columns>
+                  </TableView>
+                  <Button fx:id="btn_Eliminar" layoutX="420.0" layoutY="263.0" mnemonicParsing="false" onAction="#onEliminarPrestamo" prefHeight="26.0" prefWidth="109.0" text="Eliminar" />
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

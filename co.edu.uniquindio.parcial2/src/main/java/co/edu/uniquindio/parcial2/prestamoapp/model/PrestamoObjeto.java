@@ -2,7 +2,6 @@ package co.edu.uniquindio.parcial2.prestamoapp.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class PrestamoObjeto {
@@ -110,7 +109,7 @@ public class PrestamoObjeto {
                 .build();
     }
 
-    private Cliente obtenerCliente(String cedula) {
+    public Cliente obtenerCliente(String cedula) {
         Cliente cliente = null;
         for (Cliente cliente1: getListaClientes()) {
             if(cliente1.getCedula().equalsIgnoreCase(cedula)){
@@ -120,6 +119,14 @@ public class PrestamoObjeto {
         }
 
         return cliente;
+    }
+
+    public List<String> obtenerClientesCedulas() {
+        List<String> listaCedulas = new ArrayList<>();
+        for (Cliente cliente: getListaClientes()) {
+            listaCedulas.add(cliente.getCedula());
+        }
+        return listaCedulas;
     }
 
     public String obtenerClientesPorCiudad(String ciudad) {
@@ -224,11 +231,19 @@ public class PrestamoObjeto {
         return null;
     }
 
+    public List<String> obtenerEmpleadosCedulas() {
+        List<String> listaCedulas = new ArrayList<>();
+        for (Empleado empleado: listaEmpleados) {
+            listaCedulas.add(empleado.getCedula());
+        }
+        return listaCedulas;
+    }
+
     public boolean agregarPrestamo(Prestamo prestamo) {
         if (obtenerPrestamo(prestamo.getNumeroPrestamo()) == null &&
                 verificarDisponibilidadObjetos(prestamo) &&
                 !prestamo.getListaObjetosAsociados().isEmpty() &&
-                !prestamo.isEntregado()) {
+                prestamo.getEstadoPrestamo().equals(EstadoPrestamo.PENDIENTE)) {
             listaPrestamos.add(prestamo);
             prestamo.getClienteAsociado().getListaPrestamosAsociados().add(prestamo);
             prestamo.getEmpleadoAsociado().getListaPrestamosAsociados().add(prestamo);
@@ -240,7 +255,8 @@ public class PrestamoObjeto {
 
     public boolean eliminarPrestamo(String numeroPrestamo) {
         Prestamo prestamoEncontrado = obtenerPrestamo(numeroPrestamo);
-        if (prestamoEncontrado != null && !prestamoEncontrado.isEntregado()) {
+        if (prestamoEncontrado != null &&
+                prestamoEncontrado.getEstadoPrestamo().equals(EstadoPrestamo.PENDIENTE)) {
             listaPrestamos.remove(prestamoEncontrado);
             prestamoEncontrado.getClienteAsociado().getListaPrestamosAsociados().remove(prestamoEncontrado);
             prestamoEncontrado.getEmpleadoAsociado().getListaPrestamosAsociados().remove(prestamoEncontrado);
@@ -251,12 +267,12 @@ public class PrestamoObjeto {
 
     public boolean actualizarPrestamo(String numeroPrestamo, Prestamo nuevoPrestamo) {
         Prestamo prestamoViejo = obtenerPrestamo(numeroPrestamo);
-        if (prestamoViejo != null && !prestamoViejo.isEntregado()) {
+        if (prestamoViejo != null &&
+                prestamoViejo.getEstadoPrestamo().equals(EstadoPrestamo.PENDIENTE)) {
             if (obtenerPrestamo(nuevoPrestamo.getNumeroPrestamo()) == null ||
                     nuevoPrestamo.getNumeroPrestamo().equalsIgnoreCase(numeroPrestamo)) {
                 prestamoViejo.setNumeroPrestamo(nuevoPrestamo.getNumeroPrestamo());
                 prestamoViejo.setFechaPrestamo(nuevoPrestamo.getFechaPrestamo());
-                prestamoViejo.setFechaEntrega(nuevoPrestamo.getFechaEntrega());
                 prestamoViejo.setDescripcion(nuevoPrestamo.getDescripcion());
                 cambiarEmpleadoPrestamo(prestamoViejo, nuevoPrestamo);
                 cambiarClientePrestamo(prestamoViejo, nuevoPrestamo);
@@ -265,11 +281,12 @@ public class PrestamoObjeto {
         return false;
     }
 
-    public boolean entregarPrestamo(String numeroPrestamo, Date fechaEntrega) {
+    public boolean entregarPrestamo(String numeroPrestamo, LocalDate fechaEntrega) {
         Prestamo prestamoEncontrado = obtenerPrestamo(numeroPrestamo);
-        if (prestamoEncontrado != null && !prestamoEncontrado.isEntregado()) {
+        if (prestamoEncontrado != null &&
+                prestamoEncontrado.getEstadoPrestamo().equals(EstadoPrestamo.PENDIENTE)) {
             if (verificarFechasPrestamo(prestamoEncontrado, fechaEntrega)) {
-                prestamoEncontrado.setEntregado(true);
+                prestamoEncontrado.setEstadoPrestamo(EstadoPrestamo.ENTREGADO);
                 cambiarEstadoDisponibilidadObjetosLibres(prestamoEncontrado);
                 return true;
             }
@@ -288,7 +305,7 @@ public class PrestamoObjeto {
 
     private boolean verificarDisponibilidadObjetos(Prestamo prestamo) {
         for (Objeto objeto: prestamo.getListaObjetosAsociados()) {
-            if (objeto.isPrestado()) {
+            if (objeto.getDisponibilidadObjeto().equals(DisponibilidadObjeto.PRESTADO)) {
                 return false;
             }
         }
@@ -297,13 +314,13 @@ public class PrestamoObjeto {
 
     private void cambiarEstadoDisponibilidadObjetosOcupados(Prestamo prestamo) {
         for (Objeto objeto: prestamo.getListaObjetosAsociados()) {
-            objeto.setPrestado(true);
+            objeto.setDisponibilidadObjeto(DisponibilidadObjeto.PRESTADO);
         }
     }
 
     private void cambiarEstadoDisponibilidadObjetosLibres(Prestamo prestamo) {
         for (Objeto objeto: prestamo.getListaObjetosAsociados()) {
-            objeto.setPrestado(false);
+            objeto.setDisponibilidadObjeto(DisponibilidadObjeto.DISPONIBLE);
         }
     }
 
@@ -327,9 +344,9 @@ public class PrestamoObjeto {
         }
     }
 
-    private boolean verificarFechasPrestamo(Prestamo prestamo, Date fechaEntrega) {
-        Date fechaPrestamo = prestamo.getFechaPrestamo();
-        return fechaEntrega.after(fechaPrestamo);
+    private boolean verificarFechasPrestamo(Prestamo prestamo, LocalDate fechaEntrega) {
+        LocalDate fechaPrestamo = prestamo.getFechaPrestamo();
+        return fechaEntrega.isAfter(fechaPrestamo);
     }
 
     private boolean existePersona(String cedula) {
@@ -338,5 +355,15 @@ public class PrestamoObjeto {
             return obtenerCliente(cedula) != null;
         }
         return true;
+    }
+
+    public List<String> obtenerObjetosDisponibles() {
+        List<String> listaObjetosDisponibles = new ArrayList<>();
+        for (Objeto objeto: listaObjetos) {
+            if (objeto.getDisponibilidadObjeto().equals(DisponibilidadObjeto.DISPONIBLE)) {
+                listaObjetosDisponibles.add(objeto.getNombre());
+            }
+        }
+        return listaObjetosDisponibles;
     }
 }

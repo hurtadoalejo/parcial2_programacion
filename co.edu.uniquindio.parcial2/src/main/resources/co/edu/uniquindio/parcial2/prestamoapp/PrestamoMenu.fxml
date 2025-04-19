@@ -39,7 +39,7 @@
                      <children>
                         <SplitPane fx:id="sp_GestionObjeto" orientation="VERTICAL" prefHeight="652.0" prefWidth="970.0">
                            <items>
-                              <fx:include source="GestionCliente.fxml" />
+                              <fx:include source="GestionObjeto.fxml" />
                            </items>
                         </SplitPane>
                      </children></AnchorPane>
@@ -51,7 +51,7 @@
                      <children>
                         <SplitPane fx:id="sp_GestionPrestamo" orientation="VERTICAL" prefHeight="652.0" prefWidth="970.0">
                            <items>
-                              <fx:include source="GestionCliente.fxml" />
+                              <fx:include source="GestionPrestamo.fxml" />
                            </items>
                         </SplitPane>
                      </children></AnchorPane>

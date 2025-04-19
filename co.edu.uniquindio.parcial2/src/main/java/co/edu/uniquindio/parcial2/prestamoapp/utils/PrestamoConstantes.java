@@ -46,4 +46,32 @@ public class PrestamoConstantes {
     public static final String BODY_EMPLEADO_ELIMINADO = "El empleado se eliminó con éxito";
     public static final String TITULO_EMPLEADO_NO_SELECCIONADO = "Empleado no seleccionado";
     public static final String BODY_EMPLEADO_NO_SELECCIONADO = "Debe seleccionar un empleado para continuar";
+
+    public static final String TITULO_OBJETO_AGREGADO = "Objeto agregado";
+    public static final String TITULO_OBJETO_NO_AGREGADO = "Objeto no agregado";
+    public static final String TITULO_OBJETO_ACTUALIZADO = "Objeto actualizado";
+    public static final String TITULO_OBJETO_NO_ACTUALIZADO = "Objeto no actualizado";
+    public static final String TITULO_OBJETO_ELIMINADO= "Objeto eliminado";
+    public static final String BODY_OBJETO_NO_AGREGADO = "El objeto no se agregro, ya existe";
+    public static final String BODY_OBJETO_AGREGADO = "El objeto se agregro con éxito";
+    public static final String BODY_OBJETO_NO_ACTUALIZADO = "El objeto no se actualizó con éxito, " +
+            "su número de id ya está en uso";
+    public static final String BODY_OBJETO_ACTUALIZADO = "El objeto se actualizó con éxito";
+    public static final String BODY_OBJETO_ELIMINADO = "El objeto se eliminó con éxito";
+    public static final String TITULO_OBJETO_NO_SELECCIONADO = "Objeto no seleccionado";
+    public static final String BODY_OBJETO_NO_SELECCIONADO = "Debe seleccionar un objeto para continuar";
+
+    public static final String TITULO_PRESTAMO_AGREGADO = "Prestamo agregado";
+    public static final String TITULO_PRESTAMO_NO_AGREGADO = "Prestamo no agregado";
+    public static final String TITULO_PRESTAMO_ACTUALIZADO = "Prestamo actualizado";
+    public static final String TITULO_PRESTAMO_NO_ACTUALIZADO = "Prestamo no actualizado";
+    public static final String TITULO_PRESTAMO_ELIMINADO= "Prestamo eliminado";
+    public static final String BODY_PRESTAMO_NO_AGREGADO = "El prestamo no se agregro, ya existe";
+    public static final String BODY_PRESTAMO_AGREGADO = "El prestamo se agregro con éxito";
+    public static final String BODY_PRESTAMO_NO_ACTUALIZADO = "El prestamo no se actualizó con éxito, " +
+            "su número prestamo ya está en uso";
+    public static final String BODY_PRESTAMO_ACTUALIZADO = "El prestamo se actualizó con éxito";
+    public static final String BODY_PRESTAMO_ELIMINADO = "El prestamo se eliminó con éxito";
+    public static final String TITULO_PRESTAMO_NO_SELECCIONADO = "Prestamo no seleccionado";
+    public static final String BODY_PRESTAMO_NO_SELECCIONADO = "Debe seleccionar un prestamo para continuar";
 }
