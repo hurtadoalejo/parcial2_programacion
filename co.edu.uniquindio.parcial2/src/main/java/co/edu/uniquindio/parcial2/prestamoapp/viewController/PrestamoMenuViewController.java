@@ -28,7 +28,7 @@ public class PrestamoMenuViewController {
     private Tab tab_objeto;
 
     @FXML
-    private Tab tab_administrador;
+    private Tab tab_administrativa;
 
     @FXML
     private TabPane tabPane_menuPrincipal;
@@ -38,6 +38,10 @@ public class PrestamoMenuViewController {
 
     @FXML
     private Tab tab_prestamo;
+
+    @FXML
+    void initialize() {
+    }
 
     /**
      * Metodo para configurar el cambio de tab
@@ -52,7 +56,7 @@ public class PrestamoMenuViewController {
                 System.out.println();
             } else if (newTab == tab_prestamo) {
                 System.out.println();
-            } else if (newTab == tab_administrador) {
+            } else if (newTab == tab_administrativa) {
                 System.out.println();
             }
         });
@@ -70,15 +74,4 @@ public class PrestamoMenuViewController {
         }
     }
 
-    @FXML
-    void initialize() {
-        assert tab_cliente != null : "fx:id=\"tab_cliente\" was not injected: check your FXML file 'PrestamoMenu.fxml'.";
-        assert tab_empleado != null : "fx:id=\"tab_empleado\" was not injected: check your FXML file 'PrestamoMenu.fxml'.";
-        assert tab_objeto != null : "fx:id=\"tab_objeto\" was not injected: check your FXML file 'PrestamoMenu.fxml'.";
-        assert tab_administrador != null : "fx:id=\"tab_administrador\" was not injected: check your FXML file 'PrestamoMenu.fxml'.";
-        assert tabPane_menuPrincipal != null : "fx:id=\"tabPane_menuPrincipal\" was not injected: check your FXML file 'PrestamoMenu.fxml'.";
-        assert sp_GestionClientes != null : "fx:id=\"sp_GestionClientes\" was not injected: check your FXML file 'PrestamoMenu.fxml'.";
-        assert tab_prestamo != null : "fx:id=\"tab_prestamo\" was not injected: check your FXML file 'PrestamoMenu.fxml'.";
-
-    }
 }

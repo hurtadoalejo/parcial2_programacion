@@ -1,7 +1,5 @@
 package co.edu.uniquindio.parcial2.prestamoapp.model;
 
-import co.edu.uniquindio.parcial2.prestamoapp.Empleado;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,9 +11,12 @@ public class Prestamo {
     private String descripcion;
     private Empleado empleadoAsociado;
     private Cliente clienteAsociado;
-    List<Objeto> listaObjetosAsociados = new ArrayList<>();
+    private boolean entregado;
+    private List<Objeto> listaObjetosAsociados = new ArrayList<>();
 
     public Prestamo() {
+        listaObjetosAsociados = new ArrayList<>();
+        entregado = false;
     }
 
     public String getNumeroPrestamo() {
@@ -72,5 +73,13 @@ public class Prestamo {
 
     public void setListaObjetosAsociados(List<Objeto> listaObjetosAsociados) {
         this.listaObjetosAsociados = listaObjetosAsociados;
+    }
+
+    public boolean isEntregado() {
+        return entregado;
+    }
+
+    public void setEntregado(boolean entregado) {
+        this.entregado = entregado;
     }
 }

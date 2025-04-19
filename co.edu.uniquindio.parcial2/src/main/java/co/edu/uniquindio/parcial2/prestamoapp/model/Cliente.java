@@ -1,6 +1,8 @@
 package co.edu.uniquindio.parcial2.prestamoapp.model;
 
-import co.edu.uniquindio.parcial2.prestamoapp.model.builder.ClienteBuilder;;
+import co.edu.uniquindio.parcial2.prestamoapp.model.builder.ClienteBuilder;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cliente {
 
@@ -12,6 +14,7 @@ public class Cliente {
     private String telefonoCelular;
     private String direccion;
     private int edad;
+    private List<Prestamo> listaPrestamosAsociados;
 
     public Cliente(String cedula,
                    String nombre,
@@ -29,6 +32,7 @@ public class Cliente {
         this.telefonoCelular = telefonoCelular;
         this.direccion = direccion;
         this.edad = edad;
+        this.listaPrestamosAsociados = new ArrayList<>();
     }
 
     public static ClienteBuilder builder(){
@@ -65,6 +69,14 @@ public class Cliente {
 
     public int getEdad() {
         return edad;
+    }
+
+    public List<Prestamo> getListaPrestamosAsociados() {
+        return listaPrestamosAsociados;
+    }
+
+    public void setListaPrestamosAsociados(List<Prestamo> listaPrestamosAsociados) {
+        this.listaPrestamosAsociados = listaPrestamosAsociados;
     }
 
     @Override

@@ -1,17 +1,23 @@
 package co.edu.uniquindio.parcial2.prestamoapp.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Objeto {
     private String nombre;
     private String idObjeto;
     PrestamoObjeto ownedByPrestamoUq;
     private boolean prestado;
+    private List<Prestamo> listaPrestamosAsociados;
 
     public Objeto() {
+        listaPrestamosAsociados = new ArrayList<>();
     }
 
     public Objeto(String nombre, String idObjeto) {
         this.nombre = nombre;
         this.idObjeto = idObjeto;
+        listaPrestamosAsociados = new ArrayList<>();
     }
 
     public Objeto(String nombre) {
@@ -48,6 +54,14 @@ public class Objeto {
 
     public void setPrestado(boolean prestado) {
         this.prestado = prestado;
+    }
+
+    public List<Prestamo> getListaPrestamosAsociados() {
+        return listaPrestamosAsociados;
+    }
+
+    public void setListaPrestamosAsociados(List<Prestamo> listaPrestamosAsociados) {
+        this.listaPrestamosAsociados = listaPrestamosAsociados;
     }
 
     @Override

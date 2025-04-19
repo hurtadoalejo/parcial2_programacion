@@ -1,6 +1,6 @@
 package co.edu.uniquindio.parcial2.prestamoapp.service;
 
-import co.edu.uniquindio.parcial2.prestamoapp.Empleado;
+import co.edu.uniquindio.parcial2.prestamoapp.model.Empleado;
 import co.edu.uniquindio.parcial2.prestamoapp.model.Cliente;
 import co.edu.uniquindio.parcial2.prestamoapp.model.Objeto;
 import co.edu.uniquindio.parcial2.prestamoapp.model.Prestamo;

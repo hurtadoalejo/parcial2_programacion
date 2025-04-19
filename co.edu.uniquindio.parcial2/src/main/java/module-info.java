@@ -11,4 +11,6 @@ module co.edu.uniquindio.parcial2.prestamoapp {
 
     opens co.edu.uniquindio.parcial2.prestamoapp.viewController to javafx.fxml;
     exports co.edu.uniquindio.parcial2.prestamoapp.viewController;
+    exports co.edu.uniquindio.parcial2.prestamoapp.model;
+    opens co.edu.uniquindio.parcial2.prestamoapp.model to javafx.fxml;
 }
