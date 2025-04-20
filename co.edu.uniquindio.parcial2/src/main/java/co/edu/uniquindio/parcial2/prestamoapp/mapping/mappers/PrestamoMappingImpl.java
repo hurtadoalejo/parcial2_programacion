@@ -96,7 +96,8 @@ public class PrestamoMappingImpl implements IPrestamoMapping {
         return new ObjetoDto(
                 objeto.getNombre(),
                 objeto.getIdObjeto(),
-                objeto.getDisponibilidadObjeto());
+                objeto.getDisponibilidadObjeto(),
+                objeto.getListaPrestamosAsociados().size());
     }
 
     @Override

@@ -127,14 +127,14 @@ public class GestionObjetoViewController {
         return new ObjetoDto(
                 txt_Nombre.getText(),
                 txt_IdObjeto.getText(),
-                DisponibilidadObjeto.DISPONIBLE);
+                DisponibilidadObjeto.DISPONIBLE, 0);
     }
 
     private ObjetoDto crearObjetoDto(DisponibilidadObjeto disponibilidadObjeto) {
         return new ObjetoDto(
                 txt_Nombre.getText(),
                 txt_IdObjeto.getText(),
-                disponibilidadObjeto);
+                disponibilidadObjeto, objetoSeleccionado.cantidadPrestado());
     }
 
     private void agregarObjeto() {
