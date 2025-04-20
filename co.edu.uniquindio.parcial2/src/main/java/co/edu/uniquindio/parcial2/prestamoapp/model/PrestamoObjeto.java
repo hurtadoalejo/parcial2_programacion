@@ -165,6 +165,7 @@ public class PrestamoObjeto {
             Objeto objeto = obtenerObjeto(idObjeto);
             if (objeto != null && objeto.getDisponibilidadObjeto().equals(DisponibilidadObjeto.DISPONIBLE)) {
                 objeto.setDisponibilidadObjeto(DisponibilidadObjeto.PRESTADO);
+                objeto.getListaPrestamosAsociados().add(prestamo);
                 prestamo.getListaObjetosAsociados().add(objeto);
                 return true;
             }
@@ -187,6 +188,7 @@ public class PrestamoObjeto {
             Objeto objeto = obtenerObjeto(idObjeto);
             if (objeto != null && objeto.getDisponibilidadObjeto().equals(DisponibilidadObjeto.PRESTADO)) {
                 objeto.setDisponibilidadObjeto(DisponibilidadObjeto.DISPONIBLE);
+                objeto.getListaPrestamosAsociados().remove(prestamo);
                 prestamo.getListaObjetosAsociados().remove(objeto);
                 return true;
             }
@@ -385,5 +387,25 @@ public class PrestamoObjeto {
             }
         }
         return listaObjetosDisponibles;
+    }
+
+    public List<Objeto> obtenerListaObjetosPrestadosSegunRango(int rango) {
+        List<Objeto> listaObjetosPrestados = new ArrayList<>();
+        for (Objeto objeto: listaObjetos) {
+            if (objeto.getListaPrestamosAsociados().size() > rango){
+                listaObjetosPrestados.add(objeto);
+            }
+        }
+        return listaObjetosPrestados;
+    }
+
+    public List<Cliente> obtenerListaClientesPrestamosSegunRango(int rango) {
+        List<Cliente> listaClientes = new ArrayList<>();
+        for (Cliente cliente: listaClientes) {
+            if (cliente.getListaPrestamosAsociados().size() > rango){
+                listaClientes.add(cliente);
+            }
+        }
+        return listaClientes;
     }
 }
