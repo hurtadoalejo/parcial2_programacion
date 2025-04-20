@@ -24,6 +24,7 @@ public class App extends Application {
         openPrincipalView();
     }
 
+
     /**
      * Metodo para inicializar la vista principal
      */

@@ -70,7 +70,7 @@ public class PrestamoMenuViewController {
             } else if (newTab == tab_prestamo) {
                 cargarVistaGestionPrestamo();
             } else if (newTab == tab_administrativa) {
-                System.out.println();
+                cargarVistaGestionAdministrativa();
             }
         });
     }
@@ -118,6 +118,18 @@ public class PrestamoMenuViewController {
             AnchorPane nuevaVista = loader.load();
             GestionPrestamoViewController viewController = loader.getController();
             sp_GestionPrestamo.getItems().setAll(nuevaVista);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void cargarVistaGestionAdministrativa() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                    "/co/edu/uniquindio/parcial2/prestamoapp/MenuAdministrativa.fxml"));
+            AnchorPane nuevaVista = loader.load();
+            MenuAdministrativaViewController viewController = loader.getController();
+            sp_Administrativa.getItems().setAll(nuevaVista);
         } catch (IOException e) {
             e.printStackTrace();
         }

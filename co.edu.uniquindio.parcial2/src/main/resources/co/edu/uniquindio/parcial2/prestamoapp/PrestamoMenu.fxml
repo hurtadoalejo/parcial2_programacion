@@ -63,7 +63,7 @@
                      <children>
                         <SplitPane fx:id="sp_Administrativa" orientation="VERTICAL" prefHeight="652.0" prefWidth="970.0">
                            <items>
-                              <fx:include source="GestionCliente.fxml" />
+                              <fx:include source="MenuAdministrativa.fxml" />
                            </items>
                         </SplitPane>
                      </children></AnchorPane>
