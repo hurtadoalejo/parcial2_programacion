@@ -30,6 +30,9 @@ public class AgregarObjetoViewController {
     private ResourceBundle resources;
 
     @FXML
+    private Label lb_NumeroPrestamo;
+
+    @FXML
     private URL location;
 
     @FXML
@@ -92,6 +95,7 @@ public class AgregarObjetoViewController {
 
     public void setPrestamoDto(PrestamoDto prestamoDto) {
         this.prestamoDto = prestamoDto;
+        lb_NumeroPrestamo.setText(prestamoDto.numeroPrestamo());
         initView();
     }
 

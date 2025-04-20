@@ -27,7 +27,8 @@
                   <ComboBox fx:id="cb_ClienteAsociado" layoutX="596.0" layoutY="26.0" prefHeight="25.0" prefWidth="268.0" />
                   <Label layoutX="503.0" layoutY="135.0" prefHeight="17.0" prefWidth="79.0" text="Fecha entrega:" />
                   <Button fx:id="btn_Entregar" layoutX="711.0" layoutY="217.0" mnemonicParsing="false" onAction="#onEntregarPrestamo" prefHeight="26.0" prefWidth="109.0" text="Entregar" />
-                  <Button fx:id="btn_AgregarObjetos" layoutX="398.0" layoutY="274.0" mnemonicParsing="false" onAction="#onAgregarObjetos" prefHeight="26.0" prefWidth="154.0" text="Menú Agregar Objetos" />
+                  <Button fx:id="btn_AgregarObjetos" layoutX="531.0" layoutY="272.0" mnemonicParsing="false" onAction="#onAgregarObjetos" prefHeight="26.0" prefWidth="154.0" text="Menú Agregar Objetos" />
+                  <Label layoutX="264.0" layoutY="277.0" prefHeight="17.0" prefWidth="251.0" text="Seleccione un prestamo para agregar objetos:" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="305.0" prefWidth="548.0">
