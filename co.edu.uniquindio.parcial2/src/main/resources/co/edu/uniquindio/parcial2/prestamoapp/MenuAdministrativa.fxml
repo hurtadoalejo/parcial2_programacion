@@ -14,7 +14,7 @@
                      <children>
                         <SplitPane orientation="VERTICAL" prefHeight="622.0" prefWidth="970.0">
                            <items>
-                              <fx:include source="ObjetosMasPrestados.fxml" />
+                              <fx:include source="ListaObjetos.fxml" />
                            </items>
                         </SplitPane>
                      </children>

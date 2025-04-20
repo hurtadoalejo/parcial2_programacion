@@ -1,6 +1,7 @@
 module co.edu.uniquindio.parcial2.prestamoapp {
     requires javafx.controls;
     requires javafx.fxml;
+    requires jdk.httpserver;
 
 
     opens co.edu.uniquindio.parcial2.prestamoapp to javafx.fxml;

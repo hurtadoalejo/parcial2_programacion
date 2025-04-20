@@ -18,6 +18,8 @@ public class PrestamoConstantes {
     public static final String TITULO_INCOMPLETO = "Campos incompletos";
     public static final String HEADER= "Notificación";
     public static final String BODY_INCOMPLETO = "Los datos del formulario estan incompletos";
+    public static final String TITULO_INCORRECTO_FILTRAR = "Rango invalido";
+    public static final String BODY_INCORRECTO_FILTRAR = "El rango solo admite números enteros";
 
     public static final String TITULO_CLIENTE_AGREGADO = "Cliente agregado";
     public static final String TITULO_CLIENTE_NO_AGREGADO = "Cliente no agregado";
@@ -86,8 +88,6 @@ public class PrestamoConstantes {
     public static final String BODY_PRESTAMO_ENTREGADO = "El prestamo ha sido entregado y todos sus " +
             "objetos han sido devueltos";
 
-    public static final String TITULO_OBJETO_PRESTADO = "Objeto agregado al prestamo";
-    public static final String BODY_OBJETO_PRESTADO = "El objeto se ha agregado con éxito al prestamo";
     public static final String TITULO_OBJETO_DEVUELTO = "Objeto eliminado del prestamo";
     public static final String BODY_OBJETO_DEVUELTO = "El objeto se ha eliminado con éxito al prestamo";
 }
