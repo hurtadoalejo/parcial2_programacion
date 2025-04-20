@@ -1,6 +1,8 @@
 package co.edu.uniquindio.parcial2.prestamoapp.utils;
 
 import co.edu.uniquindio.parcial2.prestamoapp.model.Cliente;
+import co.edu.uniquindio.parcial2.prestamoapp.model.Empleado;
+import co.edu.uniquindio.parcial2.prestamoapp.model.Objeto;
 import co.edu.uniquindio.parcial2.prestamoapp.model.PrestamoObjeto;
 
 public class DataUtil {
@@ -37,6 +39,22 @@ public class DataUtil {
         prestamoObjeto.getListaClientes().add(cliente1);
         prestamoObjeto.getListaClientes().add(cliente2);
         prestamoObjeto.getListaClientes().add(cliente3);
+
+        Empleado empleado = new Empleado();
+        empleado.setCedula("1097");
+        empleado.setNombre("Juan");
+        empleado.setApellido("Perez");
+        empleado.setEdad(25);
+        empleado.setOwnedByPrestamoUq(prestamoObjeto);
+
+        prestamoObjeto.getListaEmpleados().add(empleado);
+
+        Objeto objeto = new Objeto();
+        objeto.setIdObjeto("1520");
+        objeto.setNombre("Escoba");
+        objeto.setOwnedByPrestamoUq(prestamoObjeto);
+
+        prestamoObjeto.getListaObjetos().add(objeto);
 
         return prestamoObjeto;
     }

@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="652.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.parcial2.prestamoapp.viewController.GestionPrestamoViewController">
+<AnchorPane fx:id="ap_principal" prefHeight="652.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.parcial2.prestamoapp.viewController.GestionPrestamoViewController">
    <children>
       <SplitPane dividerPositions="0.5142857142857142" layoutX="10.0" layoutY="10.0" orientation="VERTICAL" prefHeight="632.0" prefWidth="950.0">
          <items>
@@ -27,7 +27,7 @@
                   <ComboBox fx:id="cb_ClienteAsociado" layoutX="596.0" layoutY="26.0" prefHeight="25.0" prefWidth="268.0" />
                   <Label layoutX="503.0" layoutY="135.0" prefHeight="17.0" prefWidth="79.0" text="Fecha entrega:" />
                   <Button fx:id="btn_Entregar" layoutX="711.0" layoutY="217.0" mnemonicParsing="false" onAction="#onEntregarPrestamo" prefHeight="26.0" prefWidth="109.0" text="Entregar" />
-                  <Button fx:id="btn_AgregarObjetos" layoutX="420.0" layoutY="273.0" mnemonicParsing="false" onAction="#onAgregarObjetos" prefHeight="26.0" prefWidth="109.0" text="Agregar Objetos" />
+                  <Button fx:id="btn_AgregarObjetos" layoutX="398.0" layoutY="274.0" mnemonicParsing="false" onAction="#onAgregarObjetos" prefHeight="26.0" prefWidth="154.0" text="Menú Agregar Objetos" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="305.0" prefWidth="548.0">

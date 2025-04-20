@@ -129,7 +129,8 @@ public class PrestamoMappingImpl implements IPrestamoMapping {
                 prestamo.getFechaEntrega(),
                 prestamo.getEmpleadoAsociado().getCedula(),
                 prestamo.getClienteAsociado().getCedula(),
-                prestamo.getEstadoPrestamo());
+                prestamo.getEstadoPrestamo(),
+                prestamo.obtenerObjetosPrestados());
     }
 
     @Override

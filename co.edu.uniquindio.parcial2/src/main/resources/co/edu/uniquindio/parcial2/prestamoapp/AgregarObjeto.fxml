@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="ap_principal" prefHeight="652.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.parcial2.prestamoapp.viewController.AgregarObjetoViewController">
+   <children>
+      <SplitPane dividerPositions="0.4642857142857143" layoutX="10.0" layoutY="10.0" orientation="VERTICAL" prefHeight="632.0" prefWidth="950.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Label layoutX="339.0" layoutY="79.0" text="Id Objeto:" />
+                  <Separator layoutX="164.0" layoutY="158.0" prefHeight="11.0" prefWidth="620.0" />
+                  <Button fx:id="btn_Agregar" layoutX="420.0" layoutY="181.0" mnemonicParsing="false" onAction="#onAgregarObjeto" prefHeight="26.0" prefWidth="109.0" text="Agregar Objeto" />
+                  <Button fx:id="btn_Menu" layoutX="384.0" layoutY="230.0" mnemonicParsing="false" onAction="#onVolverMenu" prefHeight="26.0" prefWidth="181.0" text="Volver A Gestión Prestamos" />
+                  <ComboBox fx:id="cb_IdObjeto" layoutX="411.0" layoutY="75.0" prefHeight="25.0" prefWidth="198.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="305.0" prefWidth="548.0">
+               <children>
+                  <TableView fx:id="tableObjeto" layoutX="353.0" layoutY="28.0" prefHeight="228.0" prefWidth="243.0">
+                     <columns>
+                        <TableColumn fx:id="tc_IdObjeto" prefWidth="238.0" text="Id Objeto" />
+                     </columns>
+                  </TableView>
+                  <Button fx:id="btn_Eliminar" layoutX="420.0" layoutY="280.0" mnemonicParsing="false" onAction="#onEliminarObjeto" prefHeight="26.0" prefWidth="109.0" text="Eliminar Objeto" />
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

@@ -152,9 +152,22 @@ public class PrestamoObjeto {
     }
 
     public boolean agregarObjeto(Objeto objeto){
-        if (obtenerObjeto(objeto.getIdObjeto()) == null) {
+        if (obtenerObjeto(objeto.getIdObjeto(), objeto.getNombre()) == null) {
             listaObjetos.add(objeto);
             return true;
+        }
+        return false;
+    }
+
+    public boolean agregarObjetoPrestamo(String numeroPrestamo, String idObjeto) {
+        Prestamo prestamo = obtenerPrestamo(numeroPrestamo);
+        if (prestamo != null && prestamo.getEstadoPrestamo().equals(EstadoPrestamo.PENDIENTE)) {
+            Objeto objeto = obtenerObjeto(idObjeto);
+            if (objeto != null && objeto.getDisponibilidadObjeto().equals(DisponibilidadObjeto.DISPONIBLE)) {
+                objeto.setDisponibilidadObjeto(DisponibilidadObjeto.PRESTADO);
+                prestamo.getListaObjetosAsociados().add(objeto);
+                return true;
+            }
         }
         return false;
     }
@@ -164,6 +177,19 @@ public class PrestamoObjeto {
         if (objetoEncontrado != null) {
             listaObjetos.remove(objetoEncontrado);
             return true;
+        }
+        return false;
+    }
+
+    public boolean eliminarObjetoPrestamo(String numeroPrestamo, String idObjeto) {
+        Prestamo prestamo = obtenerPrestamo(numeroPrestamo);
+        if (prestamo != null && prestamo.getEstadoPrestamo().equals(EstadoPrestamo.PENDIENTE)) {
+            Objeto objeto = obtenerObjeto(idObjeto);
+            if (objeto != null && objeto.getDisponibilidadObjeto().equals(DisponibilidadObjeto.PRESTADO)) {
+                objeto.setDisponibilidadObjeto(DisponibilidadObjeto.DISPONIBLE);
+                prestamo.getListaObjetosAsociados().remove(objeto);
+                return true;
+            }
         }
         return false;
     }
@@ -179,6 +205,16 @@ public class PrestamoObjeto {
             }
         }
         return false;
+    }
+
+    public Objeto obtenerObjeto(String idObjeto, String nombreObjeto){
+        for (Objeto objeto: listaObjetos) {
+            if(objeto.getIdObjeto().equalsIgnoreCase(idObjeto) ||
+                    objeto.getNombre().equalsIgnoreCase(nombreObjeto)){
+                return objeto;
+            }
+        }
+        return null;
     }
 
     public Objeto obtenerObjeto(String idObjeto){
@@ -241,13 +277,10 @@ public class PrestamoObjeto {
 
     public boolean agregarPrestamo(Prestamo prestamo) {
         if (obtenerPrestamo(prestamo.getNumeroPrestamo()) == null &&
-                verificarDisponibilidadObjetos(prestamo) &&
-                !prestamo.getListaObjetosAsociados().isEmpty() &&
                 prestamo.getEstadoPrestamo().equals(EstadoPrestamo.PENDIENTE)) {
             listaPrestamos.add(prestamo);
             prestamo.getClienteAsociado().getListaPrestamosAsociados().add(prestamo);
             prestamo.getEmpleadoAsociado().getListaPrestamosAsociados().add(prestamo);
-            cambiarEstadoDisponibilidadObjetosOcupados(prestamo);
             return true;
         }
         return false;
@@ -276,6 +309,7 @@ public class PrestamoObjeto {
                 prestamoViejo.setDescripcion(nuevoPrestamo.getDescripcion());
                 cambiarEmpleadoPrestamo(prestamoViejo, nuevoPrestamo);
                 cambiarClientePrestamo(prestamoViejo, nuevoPrestamo);
+                return true;
             }
         }
         return false;
@@ -287,6 +321,7 @@ public class PrestamoObjeto {
                 prestamoEncontrado.getEstadoPrestamo().equals(EstadoPrestamo.PENDIENTE)) {
             if (verificarFechasPrestamo(prestamoEncontrado, fechaEntrega)) {
                 prestamoEncontrado.setEstadoPrestamo(EstadoPrestamo.ENTREGADO);
+                prestamoEncontrado.setFechaEntrega(fechaEntrega);
                 cambiarEstadoDisponibilidadObjetosLibres(prestamoEncontrado);
                 return true;
             }
@@ -301,21 +336,6 @@ public class PrestamoObjeto {
             }
         }
         return null;
-    }
-
-    private boolean verificarDisponibilidadObjetos(Prestamo prestamo) {
-        for (Objeto objeto: prestamo.getListaObjetosAsociados()) {
-            if (objeto.getDisponibilidadObjeto().equals(DisponibilidadObjeto.PRESTADO)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private void cambiarEstadoDisponibilidadObjetosOcupados(Prestamo prestamo) {
-        for (Objeto objeto: prestamo.getListaObjetosAsociados()) {
-            objeto.setDisponibilidadObjeto(DisponibilidadObjeto.PRESTADO);
-        }
     }
 
     private void cambiarEstadoDisponibilidadObjetosLibres(Prestamo prestamo) {
@@ -361,7 +381,7 @@ public class PrestamoObjeto {
         List<String> listaObjetosDisponibles = new ArrayList<>();
         for (Objeto objeto: listaObjetos) {
             if (objeto.getDisponibilidadObjeto().equals(DisponibilidadObjeto.DISPONIBLE)) {
-                listaObjetosDisponibles.add(objeto.getNombre());
+                listaObjetosDisponibles.add(objeto.getIdObjeto());
             }
         }
         return listaObjetosDisponibles;

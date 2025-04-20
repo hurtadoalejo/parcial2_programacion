@@ -12,6 +12,7 @@ public class Objeto {
 
     public Objeto() {
         listaPrestamosAsociados = new ArrayList<>();
+        disponibilidadObjeto = DisponibilidadObjeto.DISPONIBLE;
     }
 
     public Objeto(String nombre, String idObjeto) {

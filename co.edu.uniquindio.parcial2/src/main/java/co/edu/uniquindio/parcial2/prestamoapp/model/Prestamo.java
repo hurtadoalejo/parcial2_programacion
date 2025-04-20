@@ -82,4 +82,12 @@ public class Prestamo {
     public void setEstadoPrestamo(EstadoPrestamo estadoPrestamo) {
         this.estadoPrestamo = estadoPrestamo;
     }
+
+    public List<String> obtenerObjetosPrestados(){
+        List<String> listaObjetosPrestados = new ArrayList<>();
+        for (Objeto objeto : listaObjetosAsociados) {
+            listaObjetosPrestados.add(objeto.getIdObjeto());
+        }
+        return listaObjetosPrestados;
+    }
 }

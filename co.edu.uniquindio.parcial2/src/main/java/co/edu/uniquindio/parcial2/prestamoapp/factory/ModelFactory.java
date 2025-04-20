@@ -10,6 +10,7 @@ import co.edu.uniquindio.parcial2.prestamoapp.service.IModelFactoryService;
 import co.edu.uniquindio.parcial2.prestamoapp.service.IPrestamoMapping;
 import co.edu.uniquindio.parcial2.prestamoapp.utils.DataUtil;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class ModelFactory implements IModelFactoryService {
@@ -138,6 +139,11 @@ public class ModelFactory implements IModelFactoryService {
     }
 
     @Override
+    public boolean entregarPrestamo(String numeroPrestamo, LocalDate fechaEntrega) {
+        return prestamoObjeto.entregarPrestamo(numeroPrestamo, fechaEntrega);
+    }
+
+    @Override
     public boolean eliminarPrestamo(String numeroPrestamo) {
         return prestamoObjeto.eliminarPrestamo(numeroPrestamo);
     }
@@ -148,5 +154,15 @@ public class ModelFactory implements IModelFactoryService {
         Cliente cliente = obtenerCliente(nuevoPrestamo.cedulaCliente());
         Prestamo prestamo = mapper.prestamoDtoToPrestamo(nuevoPrestamo, empleado, cliente);
         return prestamoObjeto.actualizarPrestamo(numeroPrestamo, prestamo);
+    }
+
+    @Override
+    public boolean agregarObjetoPrestamo(String numeroPrestamo, String idObjeto) {
+        return prestamoObjeto.agregarObjetoPrestamo(numeroPrestamo, idObjeto);
+    }
+
+    @Override
+    public boolean eliminarObjetoPrestamo(String numeroPrestamo, String idObjeto) {
+        return prestamoObjeto.eliminarObjetoPrestamo(numeroPrestamo, idObjeto);
     }
 }

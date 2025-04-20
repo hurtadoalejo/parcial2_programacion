@@ -7,6 +7,7 @@ import co.edu.uniquindio.parcial2.prestamoapp.mapping.dto.PrestamoDto;
 import co.edu.uniquindio.parcial2.prestamoapp.model.Cliente;
 import co.edu.uniquindio.parcial2.prestamoapp.model.Empleado;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface IModelFactoryService {
@@ -32,6 +33,10 @@ public interface IModelFactoryService {
 
     List<PrestamoDto> obtenerPrestamos();
     boolean agregarPrestamo(PrestamoDto prestamoDto);
+    boolean entregarPrestamo(String numeroPrestamo, LocalDate fechaEntrega);
     boolean eliminarPrestamo(String numeroPrestamo);
     boolean actualizarPrestamo(String numeroPrestamo, PrestamoDto nuevoPrestamo);
+
+    boolean agregarObjetoPrestamo(String numeroPrestamo, String idObjeto);
+    boolean eliminarObjetoPrestamo(String numeroPrestamo, String idObjeto);
 }
