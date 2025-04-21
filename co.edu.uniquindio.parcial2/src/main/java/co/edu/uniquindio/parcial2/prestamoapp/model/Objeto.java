@@ -11,13 +11,15 @@ public class Objeto {
     private List<Prestamo> listaPrestamosAsociados;
 
     public Objeto() {
-        listaPrestamosAsociados = new ArrayList<>();
         disponibilidadObjeto = DisponibilidadObjeto.DISPONIBLE;
+        listaPrestamosAsociados = new ArrayList<>();
     }
 
-    public Objeto(String nombre, String idObjeto) {
+    public Objeto(String nombre, String idObjeto, PrestamoObjeto ownedByPrestamoUq) {
         this.nombre = nombre;
         this.idObjeto = idObjeto;
+        this.ownedByPrestamoUq = ownedByPrestamoUq;
+        disponibilidadObjeto = DisponibilidadObjeto.DISPONIBLE;
         listaPrestamosAsociados = new ArrayList<>();
     }
 

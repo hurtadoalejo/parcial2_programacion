@@ -7,6 +7,12 @@ public class Empleado extends Persona {
     private PrestamoObjeto ownedByPrestamoUq;
     private List<Prestamo> listaPrestamosAsociados;
 
+    public Empleado(String nombre, String apellido, String cedula, int edad, PrestamoObjeto ownedByPrestamoUq) {
+        super(nombre, apellido, cedula, edad);
+        listaPrestamosAsociados = new ArrayList<>();
+        this.ownedByPrestamoUq = ownedByPrestamoUq;
+    }
+
     public Empleado() {
         listaPrestamosAsociados = new ArrayList<>();
     }

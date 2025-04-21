@@ -26,7 +26,7 @@
                      <columns>
                         <TableColumn fx:id="tc_Nombre" prefWidth="208.0" text="Nombre" />
                         <TableColumn fx:id="tc_IdObjeto" prefWidth="211.0" text="Id Objeto" />
-                        <TableColumn fx:id="tc_DisponibilidadObjeto" prefWidth="276.0" text="Disponibilidad Objeto" />
+                        <TableColumn fx:id="tc_DisponibilidadObjeto" prefWidth="280.0" text="Disponibilidad Objeto" />
                      </columns>
                   </TableView>
                   <Button fx:id="btn_Eliminar" layoutX="414.0" layoutY="280.0" mnemonicParsing="false" onAction="#onEliminarObjeto" prefHeight="26.0" prefWidth="109.0" text="Eliminar" />

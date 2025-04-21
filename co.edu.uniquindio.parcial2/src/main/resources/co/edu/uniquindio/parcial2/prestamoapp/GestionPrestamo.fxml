@@ -41,7 +41,7 @@
                         <TableColumn fx:id="tc_FechaEntrega" prefWidth="117.0" text="Fecha Entrega" />
                         <TableColumn fx:id="tc_Empleado" prefWidth="122.0" text="Empleado" />
                         <TableColumn fx:id="tc_Cliente" prefWidth="120.0" text="Cliente" />
-                        <TableColumn fx:id="tc_EstadoPrestamo" prefWidth="133.0" text="Estado Prestamo" />
+                        <TableColumn fx:id="tc_EstadoPrestamo" prefWidth="135.0" text="Estado Prestamo" />
                      </columns>
                   </TableView>
                   <Button fx:id="btn_Eliminar" layoutX="420.0" layoutY="263.0" mnemonicParsing="false" onAction="#onEliminarPrestamo" prefHeight="26.0" prefWidth="109.0" text="Eliminar" />

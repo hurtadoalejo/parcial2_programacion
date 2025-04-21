@@ -15,8 +15,18 @@ public class Prestamo {
     private List<Objeto> listaObjetosAsociados = new ArrayList<>();
 
     public Prestamo() {
-        listaObjetosAsociados = new ArrayList<>();
         estadoPrestamo = EstadoPrestamo.PENDIENTE;
+        listaObjetosAsociados = new ArrayList<>();
+    }
+
+    public Prestamo(String numeroPrestamo, LocalDate fechaPrestamo, String descripcion, Empleado empleadoAsociado, Cliente clienteAsociado) {
+        this.numeroPrestamo = numeroPrestamo;
+        this.fechaPrestamo = fechaPrestamo;
+        this.descripcion = descripcion;
+        this.empleadoAsociado = empleadoAsociado;
+        this.clienteAsociado = clienteAsociado;
+        this.estadoPrestamo = EstadoPrestamo.PENDIENTE;
+        listaObjetosAsociados = new ArrayList<>();
     }
 
     public String getNumeroPrestamo() {
