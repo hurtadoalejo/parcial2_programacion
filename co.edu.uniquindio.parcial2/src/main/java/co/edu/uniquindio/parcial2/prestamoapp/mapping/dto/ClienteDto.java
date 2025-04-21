@@ -5,6 +5,7 @@ public record ClienteDto(
         String apellido,
         String cedula,
         String email,
-        String direccion
+        String direccion,
+        int cantidadPrestamos
 ) {
 }

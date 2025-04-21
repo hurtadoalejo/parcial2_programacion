@@ -30,11 +30,15 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab fx:id="tab_tercero" text="Cliente con más prestamos">
+            <Tab fx:id="tab_tercero" text="Clientes con más prestamos">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <SplitPane orientation="VERTICAL" prefHeight="652.0" prefWidth="970.0" />
+                        <SplitPane orientation="VERTICAL" prefHeight="652.0" prefWidth="970.0">
+                           <items>
+                              <fx:include source="ListaClientes.fxml" />
+                           </items>
+                        </SplitPane>
                      </children>
                   </AnchorPane>
                </content>

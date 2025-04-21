@@ -151,7 +151,7 @@ public class GestionClienteViewController {
                 txt_Apellido.getText(),
                 txt_Cedula.getText(),
                 txt_Email.getText(),
-                txt_Direccion.getText());
+                txt_Direccion.getText(), 0);
     }
 
     private void agregarCliente() {

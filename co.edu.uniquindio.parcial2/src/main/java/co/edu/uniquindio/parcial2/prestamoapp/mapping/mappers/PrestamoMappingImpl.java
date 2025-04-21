@@ -34,7 +34,8 @@ public class PrestamoMappingImpl implements IPrestamoMapping {
                 cliente.getApellido(),
                 cliente.getCedula(),
                 cliente.getEmail(),
-                cliente.getDireccion());
+                cliente.getDireccion(),
+                cliente.getListaPrestamosAsociados().size());
     }
 
     @Override
