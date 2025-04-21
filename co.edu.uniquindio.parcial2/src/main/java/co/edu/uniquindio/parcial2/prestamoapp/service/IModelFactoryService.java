@@ -27,6 +27,7 @@ public interface IModelFactoryService {
 
     List<ObjetoDto> obtenerObjetos();
     List<String> obtenerObjetosDisponibles();
+    ObjetoDto obtenerObjeto(String idObjeto);
     boolean agregarObjeto(ObjetoDto objetoDto);
     boolean eliminarObjeto(String idObjeto);
     boolean actualizarObjeto(String idObjeto, ObjetoDto nuevoObjeto);

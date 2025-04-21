@@ -15,6 +15,11 @@ public class PrestamoConstantes {
     public static final String CLIENTE_ELIMINADO = "El cliente se ha eliminado con éxito";
     public static final String CLIENTE_ACTUALIZADO = "El cliente se ha actualizado con éxito";
 
+    public static final String TITULO_OBJETO_ENCONTRADO = "Objeto encontrado";
+    public static final String TITULO_OBJETO_NO_ENCONTRADO = "Objeto no encontrado";
+    public static final String BODY_OBJETO_ENCONTRADO = "El objeto ha sido encontrado y se cargaran sus datos";
+    public static final String BODY_OBJETO_NO_ENCONTRADO = "El objeto no existe";
+
     public static final String TITULO_INCOMPLETO = "Campos incompletos";
     public static final String HEADER= "Notificación";
     public static final String BODY_INCOMPLETO = "Los datos del formulario estan incompletos";
@@ -90,4 +95,8 @@ public class PrestamoConstantes {
 
     public static final String TITULO_OBJETO_DEVUELTO = "Objeto eliminado del prestamo";
     public static final String BODY_OBJETO_DEVUELTO = "El objeto se ha eliminado con éxito al prestamo";
+
+    public static final String TITULO_INCORRECTO_ID = "Id invalido";
+    public static final String BODY_INCORRECTO_ID = "El id del objeto solo puede contener números enteros";
+    public static final String BODY_INCOMPLETO_ID = "Debe proporcionar un id para continuar";
 }

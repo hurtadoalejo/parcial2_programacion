@@ -94,6 +94,9 @@ public class PrestamoMappingImpl implements IPrestamoMapping {
 
     @Override
     public ObjetoDto objetoToObjetoDto(Objeto objeto) {
+        if (objeto == null) {
+            return null;
+        }
         return new ObjetoDto(
                 objeto.getNombre(),
                 objeto.getIdObjeto(),
