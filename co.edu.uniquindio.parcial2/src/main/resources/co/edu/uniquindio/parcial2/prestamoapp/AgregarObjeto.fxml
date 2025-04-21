@@ -23,7 +23,7 @@
                     <children>
                         <TableView fx:id="tableObjeto" layoutX="353.0" layoutY="28.0" prefHeight="228.0" prefWidth="243.0">
                             <columns>
-                                <TableColumn fx:id="tc_IdObjeto" prefWidth="238.0" text="Id Objeto" />
+                                <TableColumn fx:id="tc_IdObjeto" prefWidth="242.0" text="Id Objeto" />
                             </columns>
                         </TableView>
                         <Button fx:id="btn_Eliminar" layoutX="420.0" layoutY="280.0" mnemonicParsing="false" onAction="#onEliminarObjeto" prefHeight="26.0" prefWidth="109.0" text="Eliminar Objeto" />
