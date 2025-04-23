@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -15,8 +16,13 @@
                         <Button fx:id="btn_Agregar" layoutX="420.0" layoutY="189.0" mnemonicParsing="false" onAction="#onAgregarObjeto" prefHeight="26.0" prefWidth="109.0" text="Agregar Objeto" />
                         <Button fx:id="btn_Menu" layoutX="384.0" layoutY="238.0" mnemonicParsing="false" onAction="#onVolverMenu" prefHeight="26.0" prefWidth="181.0" text="Volver A Gestión Prestamos" />
                         <ComboBox fx:id="cb_IdObjeto" layoutX="412.0" layoutY="107.0" prefHeight="25.0" prefWidth="198.0" />
-                  <Label layoutX="410.0" layoutY="34.0" text="Número de prestamo:" />
+                  <Label layoutX="416.0" layoutY="68.0" text="Número de prestamo:" />
                   <Label fx:id="lb_NumeroPrestamo" layoutX="538.0" layoutY="34.0" />
+                  <Label layoutX="352.0" layoutY="26.0" text="GESTIÓN AGREGAR OBJETOS A PRESTAMO">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
                     </children>
                 </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="305.0" prefWidth="548.0">

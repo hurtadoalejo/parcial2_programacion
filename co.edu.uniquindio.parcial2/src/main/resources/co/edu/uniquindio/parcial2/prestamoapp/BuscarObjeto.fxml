@@ -11,13 +11,13 @@
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="234.0" prefWidth="945.0">
                <children>
-                  <Label layoutX="303.0" layoutY="108.0" text="Ingrese el id del objeto a buscar:" />
-                  <Button fx:id="btn_Limpiar" layoutX="379.0" layoutY="183.0" mnemonicParsing="false" onAction="#onLimpiar" prefHeight="26.0" prefWidth="93.0" text="Limpiar" />
-                  <Label layoutX="429.0" layoutY="23.0" text="Buscar Objeto">
+                  <Label layoutX="374.0" layoutY="30.0" text="BUSCAR OBJETOS POR NÚMERO ID">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
+                  <Label layoutX="303.0" layoutY="108.0" text="Ingrese el id del objeto a buscar:" />
+                  <Button fx:id="btn_Limpiar" layoutX="379.0" layoutY="183.0" mnemonicParsing="false" onAction="#onLimpiar" prefHeight="26.0" prefWidth="93.0" text="Limpiar" />
                   <TextField fx:id="txt_IdObjeto" layoutX="492.0" layoutY="103.0" prefHeight="26.0" prefWidth="150.0" />
                   <Button fx:id="btn_BuscarObjeto" layoutX="496.0" layoutY="183.0" mnemonicParsing="false" onAction="#onBuscarObjeto" prefHeight="26.0" prefWidth="93.0" text="Filtrar" />
                </children>

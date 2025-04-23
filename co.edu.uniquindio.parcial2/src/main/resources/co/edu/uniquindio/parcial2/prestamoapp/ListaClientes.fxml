@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -10,10 +11,15 @@
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="273.0" prefWidth="941.0">
                <children>
-                  <Label layoutX="250.0" layoutY="77.0" text="Filtrar lista cliente con más prestados desde:" />
-                  <TextField fx:id="txt_Rango" layoutX="526.0" layoutY="72.0" prefHeight="26.0" prefWidth="150.0" />
+                  <Label layoutX="250.0" layoutY="101.0" text="Filtrar lista cliente con más prestados desde:" />
+                  <TextField fx:id="txt_Rango" layoutX="526.0" layoutY="96.0" prefHeight="26.0" prefWidth="150.0" />
                   <Button fx:id="btn_Filtrar" layoutX="498.0" layoutY="156.0" mnemonicParsing="false" onAction="#onFiltrar" prefHeight="26.0" prefWidth="93.0" text="Filtrar" />
                   <Button fx:id="btn_Limpiar" layoutX="370.0" layoutY="156.0" mnemonicParsing="false" onAction="#onLimpiar" prefHeight="26.0" prefWidth="93.0" text="Limpiar" />
+                  <Label layoutX="361.0" layoutY="33.0" text="LISTA CLIENTES CON MÁS PRESTAMOS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="305.0" prefWidth="548.0">

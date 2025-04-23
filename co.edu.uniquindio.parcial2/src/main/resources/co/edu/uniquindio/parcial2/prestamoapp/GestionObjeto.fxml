@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -18,6 +19,11 @@
                   <Button fx:id="btn_Limpiar" layoutX="225.0" layoutY="213.0" mnemonicParsing="false" onAction="#onLimpiar" prefHeight="26.0" prefWidth="108.0" text="Limpiar" />
                   <Button fx:id="btn_Agregar" layoutX="419.0" layoutY="212.0" mnemonicParsing="false" onAction="#onAgregarObjeto" prefHeight="26.0" prefWidth="109.0" text="Agregar" />
                   <Button fx:id="btn_Actualizar" layoutX="615.0" layoutY="212.0" mnemonicParsing="false" onAction="#onActualizarObjeto" prefHeight="26.0" prefWidth="109.0" text="Actualizar" />
+                  <Label layoutX="421.0" layoutY="27.0" text="GESTIÓN OBJETOS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="305.0" prefWidth="548.0">
