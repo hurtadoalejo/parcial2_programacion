@@ -54,6 +54,11 @@ public class BuscarObjetoViewController {
         buscarObjeto();
     }
 
+    @FXML
+    void initialize() {
+        buscarObjetoController = new BuscarObjetoController();
+    }
+
     private void buscarObjeto() {
         if (!txt_IdObjeto.getText().isEmpty()) {
             if (isInteger(txt_IdObjeto.getText())) {
@@ -74,11 +79,6 @@ public class BuscarObjetoViewController {
         } else {
             mostrarMensaje(TITULO_INCOMPLETO, HEADER, BODY_INCOMPLETO_ID, Alert.AlertType.WARNING);
         }
-    }
-
-    @FXML
-    void initialize() {
-        buscarObjetoController = new BuscarObjetoController();
     }
 
     private void limpiarCampos() {

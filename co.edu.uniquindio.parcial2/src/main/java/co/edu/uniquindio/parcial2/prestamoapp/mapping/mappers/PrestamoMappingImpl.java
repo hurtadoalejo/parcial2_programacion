@@ -29,6 +29,9 @@ public class PrestamoMappingImpl implements IPrestamoMapping {
 
     @Override
     public ClienteDto clienteToClienteDto(Cliente cliente) {
+        if (cliente == null) {
+            return null;
+        }
         return new ClienteDto(
                 cliente.getNombre(),
                 cliente.getApellido(),

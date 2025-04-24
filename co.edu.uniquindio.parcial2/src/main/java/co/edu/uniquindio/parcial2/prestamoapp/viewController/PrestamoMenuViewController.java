@@ -25,6 +25,12 @@ public class PrestamoMenuViewController {
     private Tab tab_cliente;
 
     @FXML
+    private SplitPane sp_ParcialDos;
+
+    @FXML
+    private Tab tab_EntregaParcial2;
+
+    @FXML
     private Tab tab_empleado;
 
     @FXML

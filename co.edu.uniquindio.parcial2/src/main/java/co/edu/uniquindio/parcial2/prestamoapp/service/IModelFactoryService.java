@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface IModelFactoryService {
     List<ClienteDto> obtenerClientes();
-    Cliente obtenerCliente(String cedula);
+    ClienteDto obtenerCliente(String cedula);
     List<String> obtenerCedulasClientes();
     boolean agregarCliente(ClienteDto clienteDto);
     boolean actualizarCliente(String cedulaVieja, ClienteDto clienteDto);

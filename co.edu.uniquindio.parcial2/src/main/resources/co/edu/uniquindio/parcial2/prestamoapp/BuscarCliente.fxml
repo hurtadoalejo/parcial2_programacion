@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.parcial2.prestamoapp.viewController.BuscarClienteViewController">
+   <children>
+      <SplitPane dividerPositions="0.4562289562289562" layoutX="12.0" layoutY="13.0" orientation="VERTICAL" prefHeight="596.0" prefWidth="947.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="234.0" prefWidth="945.0">
+               <children>
+                  <Label layoutX="364.0" layoutY="34.0" text="BUSCAR CLIENTES POR NÚMERO DE CÉDULA">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="275.0" layoutY="108.0" text="Ingrese la cédula del cliente a buscar:" />
+                  <Button fx:id="btn_Limpiar" layoutX="379.0" layoutY="183.0" mnemonicParsing="false" onAction="#onLimpiar" prefHeight="26.0" prefWidth="93.0" text="Limpiar" />
+                  <TextField fx:id="txt_IdCliente" layoutX="492.0" layoutY="103.0" prefHeight="26.0" prefWidth="150.0" />
+                  <Button fx:id="btn_BuscarCliente" layoutX="496.0" layoutY="183.0" mnemonicParsing="false" onAction="#onBuscarCliente" prefHeight="26.0" prefWidth="93.0" text="Filtrar" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="350.0" prefWidth="945.0">
+               <children>
+                  <Label layoutX="373.0" layoutY="27.0" text="Nombre cliente:" />
+                  <Label layoutX="353.0" layoutY="75.0" text="Apellido del cliente:" />
+                  <Label layoutX="359.0" layoutY="125.0" text="Cédula del cliente:" />
+                  <Label layoutX="366.0" layoutY="177.0" text="Email del cliente:" />
+                  <Label layoutX="344.0" layoutY="219.0" text="Dirección del cliente:" />
+                  <Label layoutX="272.0" layoutY="260.0" text="Cantidad de prestamos del cliente:" />
+                  <Label fx:id="lb_NombreCliente" layoutX="471.0" layoutY="27.0" />
+                  <Label fx:id="lb_ApellidoCliente" layoutX="470.0" layoutY="75.0" />
+                  <Label fx:id="lb_CedulaCliente" layoutX="470.0" layoutY="125.0" />
+                  <Label fx:id="lb_EmailCliente" layoutX="470.0" layoutY="177.0" />
+                  <Label fx:id="lb_DireccionCliente" layoutX="470.0" layoutY="219.0" />
+                  <Label fx:id="lb_CantidadPrestamos" layoutX="470.0" layoutY="261.0" />
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

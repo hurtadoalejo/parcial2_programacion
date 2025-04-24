@@ -36,8 +36,9 @@ public class ModelFactory implements IModelFactoryService {
     }
 
     @Override
-    public Cliente obtenerCliente(String cedula) {
-        return prestamoObjeto.obtenerCliente(cedula);
+    public ClienteDto obtenerCliente(String cedula) {
+        Cliente cliente = prestamoObjeto.obtenerCliente(cedula);
+        return mapper.clienteToClienteDto(cliente);
     }
 
     @Override
@@ -113,6 +114,10 @@ public class ModelFactory implements IModelFactoryService {
         return prestamoObjeto.agregarObjeto(objeto);
     }
 
+    private Cliente obtenerClienteAgregar(String cedula) {
+        return prestamoObjeto.obtenerCliente(cedula);
+    }
+
     @Override
     public boolean eliminarObjeto(String idObjeto) {
         return prestamoObjeto.eliminarObjeto(idObjeto);
@@ -133,7 +138,7 @@ public class ModelFactory implements IModelFactoryService {
     @Override
     public boolean agregarPrestamo(PrestamoDto prestamoDto) {
         Empleado empleado = obtenerEmpleado(prestamoDto.cedulaEmpleado());
-        Cliente cliente = obtenerCliente(prestamoDto.cedulaCliente());
+        Cliente cliente = obtenerClienteAgregar(prestamoDto.cedulaCliente());
         Prestamo prestamo = mapper.prestamoDtoToPrestamo(prestamoDto, empleado, cliente);
         return prestamoObjeto.agregarPrestamo(prestamo);
     }
@@ -151,7 +156,7 @@ public class ModelFactory implements IModelFactoryService {
     @Override
     public boolean actualizarPrestamo(String numeroPrestamo, PrestamoDto nuevoPrestamo) {
         Empleado empleado = obtenerEmpleado(nuevoPrestamo.cedulaEmpleado());
-        Cliente cliente = obtenerCliente(nuevoPrestamo.cedulaCliente());
+        Cliente cliente = obtenerClienteAgregar(nuevoPrestamo.cedulaCliente());
         Prestamo prestamo = mapper.prestamoDtoToPrestamo(nuevoPrestamo, empleado, cliente);
         return prestamoObjeto.actualizarPrestamo(numeroPrestamo, prestamo);
     }

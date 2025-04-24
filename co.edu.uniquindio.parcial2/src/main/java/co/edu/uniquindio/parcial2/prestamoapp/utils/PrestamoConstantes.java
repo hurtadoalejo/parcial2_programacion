@@ -1,20 +1,6 @@
 package co.edu.uniquindio.parcial2.prestamoapp.utils;
 
 public class PrestamoConstantes {
-    public static final String INGRESE_NOMBRE_CLIENTE = "Ingrese el nombre del cliente";
-    public static final String INGRESE_APELIIDO_CLIENTE = "Ingrese el apellido del cliente";
-    public static final String INGRESE_CEDULA_CLIENTE = "Ingrese la cedula del cliente";
-    public static final String INGRESE_CEDULA_CLIENTE_ACTUAL = "Ingrese la cedula actual del cliente";
-    public static final String INGRESE_EDAD_CLIENTE = "Ingrese la edad del cliente";
-
-    public static final String CLIENTE_CREADO = "El cliente se ha creado con éxito";
-    public static final String CLIENTE_NO_CREADO = "No se pudo crear el cliente, ya existe¡¡¡¡";
-
-    public static final String CLIENTE_ENCONTRADO = "Cliente encontrado: ";
-    public static final String CLIENTE_NO_EXISTE = "El cliente no existe";
-    public static final String CLIENTE_ELIMINADO = "El cliente se ha eliminado con éxito";
-    public static final String CLIENTE_ACTUALIZADO = "El cliente se ha actualizado con éxito";
-
     public static final String TITULO_OBJETO_ENCONTRADO = "Objeto encontrado";
     public static final String TITULO_OBJETO_NO_ENCONTRADO = "Objeto no encontrado";
     public static final String BODY_OBJETO_ENCONTRADO = "El objeto ha sido encontrado y se cargaran sus datos";
@@ -99,4 +85,13 @@ public class PrestamoConstantes {
     public static final String TITULO_INCORRECTO_ID = "Id invalido";
     public static final String BODY_INCORRECTO_ID = "El id del objeto solo puede contener números enteros";
     public static final String BODY_INCOMPLETO_ID = "Debe proporcionar un id para continuar";
+
+    public static final String TITULO_INCORRECTO_CEDULA = "Número de cédula invalido";
+    public static final String BODY_INCORRECTO_CEDULA = "El número de cédula del cliente solo puede contener números enteros";
+    public static final String BODY_INCOMPLETO_CEDULA = "Debe proporcionar un número de cédula para continuar";
+
+    public static final String TITULO_CLIENTE_ENCONTRADO = "Cliente encontrado";
+    public static final String TITULO_CLIENTE_NO_ENCONTRADO = "Cliente no encontrado";
+    public static final String BODY_CLIENTE_ENCONTRADO = "El cliente ha sido encontrado y se cargaran sus datos";
+    public static final String BODY_CLIENTE_NO_ENCONTRADO = "El cliente no existe";
 }
