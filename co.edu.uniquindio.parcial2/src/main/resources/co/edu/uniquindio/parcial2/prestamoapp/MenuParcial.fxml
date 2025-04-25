@@ -4,18 +4,17 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.parcial2.prestamoapp.viewController.MenuParcialViewController">
    <children>
       <TabPane fx:id="tabPane_menuPrincipal" prefHeight="650.0" prefWidth="970.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
-            <Tab fx:id="tab_primero" text="Buscar Cliente">
+            <Tab fx:id="tab_primero" text="Lista Empleados">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="550.0" prefWidth="970.0">
                      <children>
                         <SplitPane orientation="VERTICAL" prefHeight="622.0" prefWidth="970.0">
                            <items>
-                              <fx:include source="BuscarCliente.fxml" />
+                              <fx:include source="ListaEmpleados.fxml" />
                            </items>
                         </SplitPane>
                      </children>

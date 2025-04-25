@@ -70,7 +70,9 @@ public class PrestamoMappingImpl implements IPrestamoMapping {
                 empleado.getNombre(),
                 empleado.getApellido(),
                 empleado.getCedula(),
-                empleado.getEdad());
+                empleado.getEdad(),
+                empleado.getListaPrestamosAsociados().size());
+
     }
 
     @Override

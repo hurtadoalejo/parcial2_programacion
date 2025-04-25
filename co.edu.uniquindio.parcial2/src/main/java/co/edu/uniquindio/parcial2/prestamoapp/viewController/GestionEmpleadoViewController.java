@@ -143,7 +143,7 @@ public class GestionEmpleadoViewController {
                 txt_Nombre.getText(),
                 txt_Apellido.getText(),
                 txt_Cedula.getText(),
-                Integer.parseInt(txt_Edad.getText()));
+                Integer.parseInt(txt_Edad.getText()), 0);
     }
 
     private void agregarEmpleado() {
