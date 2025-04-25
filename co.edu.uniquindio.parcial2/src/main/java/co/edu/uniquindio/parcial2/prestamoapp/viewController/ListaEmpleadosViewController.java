@@ -73,16 +73,13 @@ public class ListaEmpleadosViewController {
     }
 
     private void crearListaFiltrada() {
-        listaFiltrada = new FilteredList<>(listaEmpleados, empleadoDto -> true);
+        listaFiltrada = new FilteredList<>(listaEmpleados, empleadoDto -> false);
         tableEmpleado.setItems(listaFiltrada);
-        listaFiltrada.setPredicate(empleadoDto -> false);
     }
 
     private void initView() {
         initDataBinding();
         obtenerEmpleados();
-        tableEmpleado.getItems().clear();
-        tableEmpleado.setItems(listaEmpleados);
     }
 
     private void obtenerEmpleados() {
