@@ -12,7 +12,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="550.0" prefWidth="970.0">
                      <children>
-                        <SplitPane orientation="VERTICAL" prefHeight="622.0" prefWidth="970.0">
+                        <SplitPane fx:id="sp_primero" orientation="VERTICAL" prefHeight="622.0" prefWidth="970.0">
                            <items>
                               <fx:include source="ListaEmpleados.fxml" />
                            </items>
@@ -25,7 +25,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <SplitPane orientation="VERTICAL" prefHeight="652.0" prefWidth="970.0">
+                        <SplitPane fx:id="sp_segundo" orientation="VERTICAL" prefHeight="652.0" prefWidth="970.0">
                            <items>
                               <fx:include source="ListaObjetos.fxml" />
                            </items>
@@ -38,7 +38,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <SplitPane orientation="VERTICAL" prefHeight="652.0" prefWidth="970.0">
+                        <SplitPane fx:id="sp_tercero" orientation="VERTICAL" prefHeight="652.0" prefWidth="970.0">
                            <items>
                               <fx:include source="ListaPrestamos.fxml" />
                            </items>

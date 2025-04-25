@@ -102,7 +102,7 @@ public class ListaPrestamosViewController {
             if (fechaDesdeSeleccionada != null) {
                 dp_fechaExacta.setValue(null);
                 if (fechaHastaSeleccionada != null) {
-                    if (fechaDesdeSeleccionada.isAfter(fechaHastaSeleccionada)) {
+                    if (fechaDesdeSeleccionada.isBefore(fechaHastaSeleccionada)) {
                         aplicarFiltro();
                     }
                 }
@@ -117,9 +117,13 @@ public class ListaPrestamosViewController {
 
             if (fechaHastaSeleccionada != null) {
                 dp_fechaExacta.setValue(null);
+                if (fechaDesdeSeleccionada != null) {
+                    if (fechaDesdeSeleccionada.isBefore(fechaHastaSeleccionada)) {
+                        aplicarFiltro();
+                    }
+                }
             }
 
-            aplicarFiltro();
         });
     }
 
@@ -127,7 +131,7 @@ public class ListaPrestamosViewController {
         dp_fechaExacta.valueProperty().addListener((obs, oldDate, newDate) -> {
             fechaExactaSeleccionada = newDate;
 
-            if (newDate != null) {
+            if (fechaExactaSeleccionada != null) {
                 dp_fechaInicio.setValue(null);
                 dp_fechaFin.setValue(null);
             }

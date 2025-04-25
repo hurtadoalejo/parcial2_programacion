@@ -77,6 +77,8 @@ public class PrestamoMenuViewController {
                 cargarVistaGestionPrestamo();
             } else if (newTab == tab_administrativa) {
                 cargarVistaGestionAdministrativa();
+            } else if (newTab == tab_EntregaParcial2) {
+                cargarVistaParcial();
             }
         });
     }
@@ -136,6 +138,17 @@ public class PrestamoMenuViewController {
             AnchorPane nuevaVista = loader.load();
             MenuAdministrativaViewController viewController = loader.getController();
             sp_Administrativa.getItems().setAll(nuevaVista);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void cargarVistaParcial() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                    "/co/edu/uniquindio/parcial2/prestamoapp/MenuParcial.fxml"));
+            AnchorPane nuevaVista = loader.load();
+            sp_ParcialDos.getItems().setAll(nuevaVista);
         } catch (IOException e) {
             e.printStackTrace();
         }
