@@ -389,6 +389,26 @@ public class PrestamoObjeto {
         return listaObjetosDisponibles;
     }
 
+    public List<Objeto> obtenerListaObjetosPrestados() {
+        List<Objeto> listaObjetosPrestados = new ArrayList<>();
+        for (Objeto objeto: listaObjetos) {
+            if (objeto.getDisponibilidadObjeto() == DisponibilidadObjeto.PRESTADO){
+                listaObjetosPrestados.add(objeto);
+            }
+        }
+        return listaObjetosPrestados;
+    }
+
+    public List<Objeto> obtenerListaObjetosNoPrestados() {
+        List<Objeto> listaObjetosPrestados = new ArrayList<>();
+        for (Objeto objeto: listaObjetos) {
+            if (objeto.getDisponibilidadObjeto() == DisponibilidadObjeto.DISPONIBLE){
+                listaObjetosPrestados.add(objeto);
+            }
+        }
+        return listaObjetosPrestados;
+    }
+
     public List<Objeto> obtenerListaObjetosPrestadosSegunRango(int rango) {
         List<Objeto> listaObjetosPrestados = new ArrayList<>();
         for (Objeto objeto: listaObjetos) {

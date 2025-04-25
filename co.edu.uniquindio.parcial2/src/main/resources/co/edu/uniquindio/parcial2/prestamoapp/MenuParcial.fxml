@@ -21,13 +21,13 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab fx:id="tab_segundo" text="Segundo">
+            <Tab fx:id="tab_segundo" text="Lista Objetos">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <SplitPane orientation="VERTICAL" prefHeight="652.0" prefWidth="970.0">
                            <items>
-                              <fx:include source="BuscarObjeto.fxml" />
+                              <fx:include source="ListaObjetos.fxml" />
                            </items>
                         </SplitPane>
                      </children>

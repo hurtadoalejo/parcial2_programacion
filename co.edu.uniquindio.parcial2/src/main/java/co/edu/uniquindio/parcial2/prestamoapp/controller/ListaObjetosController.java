@@ -15,4 +15,12 @@ public class ListaObjetosController {
     public List<ObjetoDto> obtenerObjetos() {
         return modelFactory.obtenerObjetos();
     }
+
+    public List<ObjetoDto> obtenerListaObjetosDisponibles() {
+        return modelFactory.obtenerListaObjetosDisponibles();
+    }
+
+    public List<ObjetoDto> obtenerListaObjetosNoDisponibles() {
+        return modelFactory.obtenerListaObjetosNoDisponibles();
+    }
 }

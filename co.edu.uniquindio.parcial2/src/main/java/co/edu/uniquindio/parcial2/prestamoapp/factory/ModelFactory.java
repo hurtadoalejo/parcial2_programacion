@@ -135,6 +135,14 @@ public class ModelFactory implements IModelFactoryService {
         return mapper.getPrestamosDto(prestamoObjeto.getListaPrestamos());
     }
 
+    public List<ObjetoDto> obtenerListaObjetosDisponibles() {
+        return mapper.getObjetosDto(prestamoObjeto.obtenerListaObjetosPrestados());
+    }
+
+    public List<ObjetoDto> obtenerListaObjetosNoDisponibles() {
+        return mapper.getObjetosDto(prestamoObjeto.obtenerListaObjetosNoPrestados());
+    }
+
     @Override
     public boolean agregarPrestamo(PrestamoDto prestamoDto) {
         Empleado empleado = obtenerEmpleado(prestamoDto.cedulaEmpleado());
@@ -175,4 +183,5 @@ public class ModelFactory implements IModelFactoryService {
     public ObjetoDto obtenerObjeto(String idObjeto) {
         return mapper.objetoToObjetoDto(prestamoObjeto.obtenerObjeto(idObjeto));
     }
+
 }

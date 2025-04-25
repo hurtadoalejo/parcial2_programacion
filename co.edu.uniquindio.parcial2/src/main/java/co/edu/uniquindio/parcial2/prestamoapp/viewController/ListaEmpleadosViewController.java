@@ -114,8 +114,8 @@ public class ListaEmpleadosViewController {
     }
 
     private boolean verificarCampos() {
-        if (!txt_Rango.getText().isEmpty()) {
-            return true;
+        if (txt_Rango.getText().isEmpty()) {
+            return false;
         } else {
             return isInteger(txt_Rango.getText());
         }

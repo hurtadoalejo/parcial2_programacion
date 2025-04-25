@@ -11,17 +11,15 @@
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="273.0" prefWidth="941.0">
                <children>
-                  <Label layoutX="281.0" layoutY="71.0" text="Filtrar lista objetos más prestados desde:" />
-                  <TextField fx:id="txt_Rango" layoutX="515.0" layoutY="67.0" prefHeight="26.0" prefWidth="150.0" />
-                  <Button fx:id="btn_Filtrar" layoutX="515.0" layoutY="167.0" mnemonicParsing="false" onAction="#onFiltrar" prefHeight="26.0" prefWidth="93.0" text="Filtrar" />
-                  <Label layoutX="283.0" layoutY="120.0" text="Filtrar lista objetos según disponibilidad:" />
-                  <Button fx:id="btn_Limpiar" layoutX="387.0" layoutY="167.0" mnemonicParsing="false" onAction="#onLimpiar" prefHeight="26.0" prefWidth="93.0" text="Limpiar" />
-                  <ComboBox fx:id="cb_tipoDisponibilidad" layoutX="515.0" layoutY="116.0" prefWidth="150.0" />
-                  <Label layoutX="352.0" layoutY="25.0" text="LISTA OBJETOS POR DISPONIBILIDAD Y MÁS PRESTADOS">
+                  <Label layoutX="418.0" layoutY="26.0" text="LISTA OBJETOS PRESTADOS">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
+                  <RadioButton fx:id="rb_todos" layoutX="248.0" layoutY="146.0" mnemonicParsing="false" text="Todos los objetos" />
+                  <RadioButton fx:id="rd_prestados" layoutX="441.0" layoutY="146.0" mnemonicParsing="false" text="Objetos Prestados" />
+                  <RadioButton fx:id="rd_noPrestados" layoutX="613.0" layoutY="146.0" mnemonicParsing="false" text="Objetos no Prestados" />
+                  <Label layoutX="422.0" layoutY="102.0" text="Filtrar lista de objetos según:" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="305.0" prefWidth="548.0">
