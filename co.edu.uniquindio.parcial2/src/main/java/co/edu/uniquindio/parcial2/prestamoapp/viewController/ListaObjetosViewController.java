@@ -27,6 +27,7 @@ public class ListaObjetosViewController {
 
     ListaObjetosController listaObjetosController;
     ObservableList<ObjetoDto> listaObjetos = FXCollections.observableArrayList();
+    private FilteredList<ObjetoDto> listaFiltrada;
 
     @FXML
     private ResourceBundle resources;
@@ -63,6 +64,8 @@ public class ListaObjetosViewController {
         listaObjetosController = new ListaObjetosController();
         configurarGrupoRadioButtons();
         initView();
+        rb_todos.setSelected(true);
+        listenerTodos();
     }
 
     private void configurarGrupoRadioButtons() {
@@ -73,24 +76,27 @@ public class ListaObjetosViewController {
         rd_prestados.setOnAction(event -> listenerTodos());
         rb_todos.setOnAction(event -> listenerTodos());
         rd_noPrestados.setOnAction(event -> listenerTodos());
-        rb_todos.setSelected(true);
     }
 
     private void listenerTodos() {
         if (rb_todos.isSelected()) {
-            obtenerObjetos();
+            listaFiltrada.setPredicate(objetoDto -> true);
         } else if (rd_prestados.isSelected()) {
-            obtenerObjetosDisponibles();
+            listaFiltrada.setPredicate(objetoDto -> objetoDto.disponibilidadObjeto() == DisponibilidadObjeto.PRESTADO);
         } else if (rd_noPrestados.isSelected()) {
-            obtenerObjetosNoDisponibles();
+            listaFiltrada.setPredicate(objetoDto -> objetoDto.disponibilidadObjeto() == DisponibilidadObjeto.DISPONIBLE);
         }
     }
 
     private void initView() {
         initDataBinding();
         obtenerObjetos();
-        tableObjeto.getItems().clear();
-        tableObjeto.setItems(listaObjetos);
+        crearListaFiltrada();
+    }
+
+    private void crearListaFiltrada() {
+        listaFiltrada = new FilteredList<>(listaObjetos, objetoDto -> false);
+        tableObjeto.setItems(listaFiltrada);
     }
 
     private void obtenerObjetos() {
