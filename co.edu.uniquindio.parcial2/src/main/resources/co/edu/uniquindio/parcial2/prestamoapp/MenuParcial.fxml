@@ -34,7 +34,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab fx:id="tab_tercero" text="Tercero">
+            <Tab fx:id="tab_tercero" text="Lista Prestamos">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>

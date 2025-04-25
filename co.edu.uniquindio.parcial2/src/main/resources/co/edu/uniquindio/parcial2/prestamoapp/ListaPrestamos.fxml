@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.parcial2.prestamoapp.viewController.ListaPrestamosViewController">
+   <children>
+      <SplitPane dividerPositions="0.43097643097643096" layoutX="12.0" layoutY="13.0" orientation="VERTICAL" prefHeight="596.0" prefWidth="947.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="273.0" prefWidth="941.0">
+               <children>
+                  <DatePicker fx:id="dp_fechaExacta" layoutX="384.0" layoutY="89.0" prefHeight="25.0" prefWidth="268.0" />
+                  <Label layoutX="294.0" layoutY="93.0" prefHeight="17.0" prefWidth="90.0" text="Fecha exacta:" />
+                  <Label layoutX="382.0" layoutY="31.0" text="LISTA PRESTAMOS POR FECHAS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="82.0" layoutY="150.0" prefHeight="17.0" prefWidth="67.0" text="Fecha Inicio:" />
+                  <DatePicker fx:id="dp_fechaInicio" layoutX="162.0" layoutY="146.0" prefHeight="25.0" prefWidth="268.0" />
+                  <Label layoutX="536.0" layoutY="150.0" prefHeight="17.0" prefWidth="50.0" text="Fecha fin:" />
+                  <DatePicker fx:id="dp_fechaFin" layoutX="600.0" layoutY="146.0" prefHeight="25.0" prefWidth="268.0" />
+                  <Button fx:id="btn_Limpiar" layoutX="419.0" layoutY="203.0" mnemonicParsing="false" onAction="#onLimpiar" prefHeight="26.0" prefWidth="108.0" text="Limpiar" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="305.0" prefWidth="548.0">
+               <children>
+                  <TableView fx:id="tablePrestamo" layoutX="22.0" layoutY="54.0" prefHeight="228.0" prefWidth="901.0">
+                     <columns>
+                        <TableColumn fx:id="tc_NumeroPrestamo" prefWidth="121.0" text="Número prestamo" />
+                        <TableColumn fx:id="tc_Descripcion" prefWidth="156.0" text="Descripción" />
+                        <TableColumn fx:id="tc_FechaPrestamo" prefWidth="129.0" text="Fecha Prestamo" />
+                        <TableColumn fx:id="tc_FechaEntrega" prefWidth="117.0" text="Fecha Entrega" />
+                        <TableColumn fx:id="tc_Empleado" prefWidth="122.0" text="Empleado" />
+                        <TableColumn fx:id="tc_Cliente" prefWidth="120.0" text="Cliente" />
+                        <TableColumn fx:id="tc_EstadoPrestamo" prefWidth="135.0" text="Estado Prestamo" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
