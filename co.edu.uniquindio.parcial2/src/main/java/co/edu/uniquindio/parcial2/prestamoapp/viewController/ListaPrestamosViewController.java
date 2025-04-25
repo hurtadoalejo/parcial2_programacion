@@ -1,6 +1,7 @@
 package co.edu.uniquindio.parcial2.prestamoapp.viewController;
 
 import java.net.URL;
+import java.security.PrivateKey;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -20,6 +21,7 @@ public class ListaPrestamosViewController {
 
     ListaPrestamosController listaPrestamosController;
     ObservableList<PrestamoDto> listaPrestamos = FXCollections.observableArrayList();
+    private FilteredList<PrestamoDto> listaFiltrada;
     private LocalDate fechaDesdeSeleccionada;
     private LocalDate fechaHastaSeleccionada;
     private LocalDate fechaExactaSeleccionada;
@@ -34,7 +36,7 @@ public class ListaPrestamosViewController {
     private DatePicker dp_fechaFin;
 
     @FXML
-    private TableColumn<?, ?> tc_NumeroPrestamo;
+    private TableColumn<PrestamoDto, String> tc_NumeroPrestamo;
 
     @FXML
     private Button btn_Limpiar;
@@ -75,46 +77,66 @@ public class ListaPrestamosViewController {
     void initialize() {
         listaPrestamosController = new ListaPrestamosController();
         initView();
+        crearListaFiltrada();
     }
 
     private void limpiarSeleccion() {
         dp_fechaExacta.setValue(null);
         dp_fechaFin.setValue(null);
-        dp_fechaExacta.setValue(null);
+        dp_fechaInicio.setValue(null);
+        listaFiltrada.setPredicate(prestamoDto -> false);
     }
 
     private void crearListaFiltrada(){
-        FilteredList<PrestamoDto> listaFiltrada = new FilteredList<>(listaPrestamos, prestamoDto -> true);
+        listaFiltrada = new FilteredList<>(listaPrestamos, prestamoDto -> false);
         tablePrestamo.setItems(listaFiltrada);
-        listenerFechaExacta(listaFiltrada);
-        listenerFechaDesde(listaFiltrada);
-        listenerFechaExacta(listaFiltrada);
+        listenerFechaExacta();
+        listenerFechaDesde();
+        listenerFechaHasta();
     }
 
-    private void listenerFechaDesde(FilteredList<PrestamoDto> listaFiltrada) {
-        dp_fechaFin.valueProperty().addListener((obs, oldDate, newDate) -> {
+    private void listenerFechaDesde() {
+        dp_fechaInicio.valueProperty().addListener((obs, oldDate, newDate) -> {
             fechaDesdeSeleccionada = newDate;
-            aplicarFiltro(listaFiltrada);
+
+            if (fechaDesdeSeleccionada != null) {
+                dp_fechaExacta.setValue(null);
+                if (fechaHastaSeleccionada != null) {
+                    if (fechaDesdeSeleccionada.isAfter(fechaHastaSeleccionada)) {
+                        aplicarFiltro();
+                    }
+                }
+
+            }
         });
     }
 
-    private void listenerFechaHasta(FilteredList<PrestamoDto> listaFiltrada) {
+    private void listenerFechaHasta() {
         dp_fechaFin.valueProperty().addListener((obs, oldDate, newDate) -> {
             fechaHastaSeleccionada = newDate;
-            aplicarFiltro(listaFiltrada);
+
+            if (fechaHastaSeleccionada != null) {
+                dp_fechaExacta.setValue(null);
+            }
+
+            aplicarFiltro();
         });
     }
 
-    private void listenerFechaExacta(FilteredList<PrestamoDto> listaFiltrada) {
+    private void listenerFechaExacta() {
         dp_fechaExacta.valueProperty().addListener((obs, oldDate, newDate) -> {
             fechaExactaSeleccionada = newDate;
-            aplicarFiltro(listaFiltrada);
+
+            if (newDate != null) {
+                dp_fechaInicio.setValue(null);
+                dp_fechaFin.setValue(null);
+            }
+            aplicarFiltro();
         });
     }
 
-    private void aplicarFiltro(FilteredList<PrestamoDto> listaFiltrada) {
+    private void aplicarFiltro() {
         listaFiltrada.setPredicate(prestamoDto -> {
-
             boolean coincideFechaExacta = (fechaExactaSeleccionada == null || prestamoDto.fechaPrestamo().isEqual(fechaExactaSeleccionada));
 
             boolean coincideFechaDesde = (fechaDesdeSeleccionada == null ||
@@ -130,8 +152,6 @@ public class ListaPrestamosViewController {
     private void initView() {
         initDataBinding();
         obtenerPrestamos();
-        tablePrestamo.getItems().clear();
-        tablePrestamo.setItems(listaPrestamos);
     }
 
     private void obtenerPrestamos() {
@@ -139,6 +159,7 @@ public class ListaPrestamosViewController {
     }
 
     private void initDataBinding() {
+        tc_NumeroPrestamo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().numeroPrestamo()));
         tc_Descripcion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().descripcion()));
         tc_FechaPrestamo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().fechaPrestamo().toString()));
         tc_FechaEntrega.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().fechaEntrega() != null ? cellData.getValue().fechaEntrega().toString() : ""));
